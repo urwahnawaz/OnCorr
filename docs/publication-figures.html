@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="urwahnawaz" />
+
+<meta name="date" content="2024-10-08" />
+
+<title>publication-figures</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">OnCorr</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+<li class="dropdown-header">Analysis</li>
+<li>
+  <a href="publication-figures.html">Figures</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">publication-figures</h1>
+<h4 class="author">urwahnawaz</h4>
+<h4 class="date">2024-10-08</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2025-06-20
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>OnCorr/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20250619code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20250619)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20250619code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20250619)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong9809e44">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong> 9809e44
+</a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong9809e44"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 9809e44.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    .Rproj.user/
+    Ignored:    analysis/figure/
+    Ignored:    data/.DS_Store
+    Ignored:    output/.DS_Store
+
+Untracked files:
+    Untracked:  analysis/CPTAC-data-correlations.Rmd
+    Untracked:  analysis/supplementary-publication-figures.Rmd
+    Untracked:  data/OncoKB/
+    Untracked:  data/Pathways/
+    Untracked:  data/Ranks/
+    Untracked:  output/Other/
+    Untracked:  output/Publication/
+    Untracked:  output/correlations-datasets/
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/publication-figures.Rmd</code>)
+and HTML (<code>docs/publication-figures.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+9809e44
+</td>
+<td>
+Urwah Nawaz
+</td>
+<td>
+2025-06-20
+</td>
+<td>
+wflow_publish("analysis/publication-figures.Rmd")
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This notebook contains the figures that will be used for the mRNA
+protein correlation paper. In this instance we will be utilizing tissue
+specific cancer correlations.</p>
+<pre class="r"><code>library(ggplot2)
+library(magrittr)
+library(tidyverse)
+library(readxl)
+library(dplyr)
+library(RWDataPlyr)
+library(AnnotationDbi)
+library(org.Hs.eg.db)
+library(EnsDb.Hsapiens.v86)
+library(svglite)
+library(ggiraph)
+library(reshape2)
+library(ggvenn)
+library(VennDiagram)
+library(ggtext)
+library(colorspace)
+library(ragg)
+library(msigdbr)
+library(matrixStats)
+library(ggpubr)</code></pre>
+<pre class="r"><code>file_dir = file.path(&quot;/Users/unawaz/Documents/2023/RNA-protein-correlationx/Data/&quot;)</code></pre>
+<pre class="r"><code>library(readxl)    
+read_excel_allsheets &lt;- function(filename, tibble = FALSE) {
+    # I prefer straight data.frames
+    # but if you like tidyverse tibbles (the default with read_excel)
+    # then just pass tibble = TRUE
+    sheets &lt;- readxl::excel_sheets(filename)
+    x &lt;- lapply(sheets, function(X) readxl::read_excel(filename, sheet = X))
+    if(!tibble) x &lt;- lapply(x, as.data.frame)
+    names(x) &lt;- sheets
+    x
+}</code></pre>
+<pre class="r"><code>sample_md = read.delim(&quot;~/Documents/2023/RNA-protein-correlationx/Data/e0022_diann_051021_sample_mapping_averaged.txt&quot;)</code></pre>
+<pre class="r"><code>txdf = ensembldb::transcripts(EnsDb.Hsapiens.v86, return.type=&quot;DataFrame&quot;)
+genedf = ensembldb::genes(EnsDb.Hsapiens.v86, return.type=&quot;DataFrame&quot;) %&gt;% 
+  as.data.frame() %&gt;% 
+  dplyr::select(gene_name, gene_id)
+tx2gene = as.data.frame(txdf[,c(&quot;tx_id&quot;,&quot;gene_id&quot;, &quot;tx_biotype&quot;)])
+
+ 
+
+tx2gene %&lt;&gt;% 
+  group_by(gene_id) %&gt;%
+  dplyr::count(gene_id) %&gt;% 
+  as.data.frame() %&gt;% 
+  set_colnames(c(&quot;gene_id&quot;, &quot;tx_n&quot;)) %&gt;%
+   left_join(genedf, by = &quot;gene_id&quot;)</code></pre>
+<pre class="r"><code>PALETTE_TTYPE = c(
+    &quot;Lung&quot;= &quot;#007fff&quot;,
+    &quot;Prostate&quot;= &quot;#665d1e&quot;,
+    &quot;Stomach&quot;= &quot;#ffbf00&quot;,
+    &quot;Central Nervous System&quot;= &quot;#fbceb1&quot;,
+    &quot;Skin&quot;= &quot;#ff033e&quot;,
+    &quot;Bladder&quot;= &quot;#ab274f&quot;,
+    &quot;Haematopoietic and Lymphoid&quot;= &quot;#d5e6f7&quot;,
+    &quot;Kidney&quot;= &quot;#7cb9e8&quot;,
+    &quot;Thyroid&quot;= &quot;#efdecd&quot;,
+    &quot;Soft Tissue&quot;= &quot;#8db600&quot;,
+    &quot;Head and Neck&quot;= &quot;#e9d66b&quot;,
+    &quot;Ovary&quot;= &quot;#b284be&quot;,
+    &quot;Bone&quot;= &quot;#b2beb5&quot;,
+    &quot;Endometrium&quot;= &quot;#10b36f&quot;,
+    &quot;Breast&quot;= &quot;#6e7f80&quot;,
+    &quot;Pancreas&quot;= &quot;#ff7e00&quot;,
+    &quot;Peripheral Nervous System&quot;= &quot;#87a96b&quot;,
+    &quot;Cervix&quot;= &quot;#c9ffe5&quot;,
+    &quot;Large Intestine&quot;= &quot;#9f2b68&quot;,
+    &quot;Liver&quot;= &quot;#00ffff&quot;,
+    &quot;Vulva&quot;= &quot;#008000&quot;,
+    &quot;Esophagus&quot;= &quot;#cd9575&quot;,
+    &quot;Biliary Tract&quot;= &quot;#72a0c1&quot;,
+    &quot;Other tissue&quot;= &quot;#a32638&quot;,
+    &quot;Small Intestine&quot;= &quot;#9966cc&quot;,
+    &quot;Placenta&quot;= &quot;#f19cbb&quot;,
+    &quot;Testis&quot;= &quot;#e32636&quot;,
+    &quot;Adrenal Gland&quot;= &quot;#3b7a57&quot;,
+    &quot;Other&quot;= &quot;whitesmoke&quot;)</code></pre>
+<pre class="r"><code>correlation_data_tissue = read.csv(&quot;output/correlations-datasets/correlation-tissue-nontransformed.csv&quot;, row.names = 1) </code></pre>
+</div>
+<div id="figure-1" class="section level1">
+<h1>Figure 1</h1>
+<div id="figure-1a" class="section level2">
+<h2>Figure 1A</h2>
+<pre class="r"><code>matrix_tissue = pivot_wider(correlation_data_tissue, names_from  = Tissue, values_from = Correlation)  %&gt;% 
+  as.data.frame() %&gt;% 
+  column_to_rownames(&quot;Gene&quot;) 
+
+tissue_count =  sample_md %&gt;% group_by(Tissue_type) %&gt;% summarise(Count = n()) %&gt;% as.data.frame() %&gt;% 
+  dplyr::rename(Tissue = Tissue_type)
+
+medians_tissue = aggregate(Correlation ~ Tissue, data = correlation_data_tissue, FUN = median) %&gt;% 
+  as.data.frame() %&gt;%
+   left_join(tissue_count, by = &quot;Tissue&quot;) %&gt;%
+    mutate(Tissue = recode(Tissue, 
+                           &quot;Breast&quot; = &quot;Breast&quot;,
+                           &quot;Central Nervous System&quot; = &quot;Central Nervous\nSystem&quot;,
+                           &quot;Head and Neck&quot; = &quot;Head and\nNeck&quot;,
+                           &quot;Esophagus&quot; = &quot;Esophagus&quot;, 
+                         &quot;Bladder&quot; = &quot;Bladder&quot;, 
+                         &quot;Skin&quot; = &quot;Skin&quot;, 
+                         &quot;Large Intestine&quot; = &quot;Large Intestine\n&quot;, 
+                         &quot;Kidney&quot; = &quot;Kidney&quot;, 
+                         &quot;Pancreas&quot; = &quot;Pancreas&quot;, 
+                         &quot;Soft Tissue&quot; = &quot;Soft Tissue&quot;, 
+                         &quot;Thyroid&quot; = &quot;Thyroid&quot;, 
+                         &quot;Peripheral Nervous System&quot; = &quot;Peripheral Nervous\nSystem&quot;, 
+                         &quot;Bone&quot; = &quot;Bone&quot;, 
+                         &quot;Ovary&quot; = &quot;Ovary&quot;, 
+                         &quot;Haematopoietic and Lymphoid&quot; = &quot;Haematopoietic and\nLymphoid&quot;, 
+                         &quot;Stomach&quot; = &quot;Stomach&quot;, 
+                         &quot;Lung&quot; = &quot;Lung&quot;, 
+                         &quot;Liver&quot; = &quot;Liver&quot;, 
+                         &quot;Cervix&quot; = &quot;Cervix&quot;)) %&gt;%
+     mutate(Label = paste0(Tissue, &quot; (n=&quot;, Count, &quot;)&quot;)) %&gt;%
+  arrange(Correlation) 
+
+
+
+tissue_dists= correlation_data_tissue %&gt;% 
+  left_join(tissue_count, by = &quot;Tissue&quot;) %&gt;%
+    group_by(Tissue) %&gt;% 
+  mutate(Label = recode(Tissue, 
+                           &quot;Breast&quot; = &quot;Breast&quot;,
+                           &quot;Central Nervous System&quot; = &quot;Central Nervous\nSystem&quot;,
+                           &quot;Head and Neck&quot; = &quot;Head and\nNeck&quot;,
+                           &quot;Esophagus&quot; = &quot;Esophagus&quot;, 
+                         &quot;Bladder&quot; = &quot;Bladder&quot;, 
+                         &quot;Skin&quot; = &quot;Skin&quot;, 
+                         &quot;Large Intestine&quot; = &quot;Large Intestine\n&quot;, 
+                         &quot;Kidney&quot; = &quot;Kidney&quot;, 
+                         &quot;Pancreas&quot; = &quot;Pancreas&quot;, 
+                         &quot;Soft Tissue&quot; = &quot;Soft Tissue&quot;, 
+                         &quot;Thyroid&quot; = &quot;Thyroid&quot;, 
+                         &quot;Peripheral Nervous System&quot; = &quot;Peripheral Nervous\nSystem&quot;, 
+                         &quot;Bone&quot; = &quot;Bone&quot;, 
+                         &quot;Ovary&quot; = &quot;Ovary&quot;, 
+                         &quot;Haematopoietic and Lymphoid&quot; = &quot;Haematopoietic and\nLymphoid&quot;, 
+                         &quot;Stomach&quot; = &quot;Stomach&quot;, 
+                         &quot;Lung&quot; = &quot;Lung&quot;, 
+                         &quot;Liver&quot; = &quot;Liver&quot;, 
+                         &quot;Cervix&quot; = &quot;Cervix&quot;)) %&gt;%
+   mutate(Label = paste0(Label, &quot; (n=&quot;, Count, &quot;)&quot;)) %&gt;%
+  mutate(Label = factor(Label, levels = medians_tissue$Label)) %&gt;%
+  ggplot(aes(x = fct_rev(Label), y = Correlation)) + 
+  ggdist::stat_halfeye(
+    aes(color = Tissue,
+        fill = after_scale(lighten(color, .5))),
+    adjust = .5, 
+    width = .75, 
+    .width = 0,
+    justification = -.4, 
+    point_color = NA) + theme(legend.position = &quot;none&quot;) +
+  geom_boxplot(
+    aes(color = Tissue,
+        color = after_scale(darken(color, .1, space = &quot;HLS&quot;))),
+    width = .42, 
+    outlier.shape = NA
+  )  + 
+  stat_summary(
+    geom = &quot;text&quot;,
+    fun = &quot;median&quot;,
+    aes(label = round(..y.., 2),
+        color = Tissue,
+        color = after_scale(darken(color, .1, space = &quot;HLS&quot;))),
+    fontface = &quot;bold&quot;,
+    size = 8,
+    vjust = 10.5,
+    na.rm = TRUE
+  ) +
+  scale_color_manual(values = PALETTE_TTYPE, guide = &quot;none&quot;) +
+  scale_fill_manual(values = PALETTE_TTYPE, guide = &quot;none&quot;) +
+  theme_bw()  + 
+  labs(y=&quot;mRNA-protein correlation&quot;,
+       x= &quot;&quot;) +
+  theme(axis.text.x = element_text(angle=70,  hjust = 1, size =30),
+        axis.text.y = element_text(size =30),
+    axis.text = element_text(color = &quot;black&quot;, 
+                                 family=&quot;serif&quot;, 
+                                 size=32), 
+    axis.title = element_text(color = &quot;black&quot;, 
+                                 family=&quot;serif&quot;, 
+                                 size=32)) 
+
+tissue_dists</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/publication-figures.Rmd/unnamed-chunk-7-1.png" alt="Distribution of mRNA-protein correlations across tissues in the ProCan-DepMapSanger dataset." width="1440" />
+<p class="caption">
+Distribution of mRNA-protein correlations across tissues in the
+ProCan-DepMapSanger dataset.
+</p>
+</div>
+<pre class="r"><code># ggsave(filename = &quot;output/Publication/Figures/Fig_1A.png&quot;, height =10, width =25, plot = tissue_dists, dpi = 1200)</code></pre>
+</div>
+<div id="figure-1b" class="section level2">
+<h2>Figure 1B</h2>
+<pre class="r"><code>cptac = read.csv(&quot;output/correlations-datasets/correlation-overall-cptac-linkedomics.csv&quot;, header=TRUE)
+ccle = read.csv(&quot;output/correlations-datasets/CCLE-correlations-overall.csv&quot;, header=TRUE)
+correlation_overall= read.csv(&quot;output/correlations-datasets/correlation-all-nontransformed.csv&quot;,
+                            header=TRUE, row.names = 1)</code></pre>
+<pre class="r"><code>cptac %&gt;% 
+  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;% 
+   mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein,
+                        keytype = &quot;ENSEMBL&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;% 
+  dplyr::rename(&quot;CPTAC&quot;= &quot;Correlation&quot;) %&gt;%
+  inner_join(correlation_overall %&gt;% 
+               dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;), by = &quot;Gene&quot;) %&gt;%
+  with(cor(.$Correlation, .$CPTAC, method = &quot;spearman&quot;))</code></pre>
+<pre><code>[1] 0.4315774</code></pre>
+<pre class="r"><code>cptac %&gt;% 
+  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;% 
+   mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein,
+                        keytype = &quot;ENSEMBL&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;% 
+  dplyr::rename(&quot;CPTAC&quot;= &quot;Correlation&quot;) %&gt;%
+  inner_join(ccle %&gt;% 
+               dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;), by = &quot;Gene&quot;) %&gt;%
+  with(cor(.$Correlation, .$CPTAC, method = &quot;spearman&quot;))</code></pre>
+<pre><code>[1] 0.3019059</code></pre>
+<pre class="r"><code>ccle %&gt;%
+  dplyr::rename(&quot;CCLE&quot;= &quot;Correlation&quot;) %&gt;%
+  inner_join(correlation_overall,
+               by = &quot;Protein&quot;) %&gt;%
+  with(cor(.$Correlation, .$CCLE, method = &quot;spearman&quot;))</code></pre>
+<pre><code>[1] 0.3846969</code></pre>
+<pre class="r"><code>overall_correlations_cell_lines = correlation_overall  %&gt;%
+  ggplot(aes(x = Correlation)) + 
+  geom_histogram(color=&quot;white&quot;, alpha=1, fill = &quot;#ccd5ae&quot;) + theme_bw() +
+  labs(x=&quot;mRNA-protein correlation&quot;, 
+       y = &quot;Number of associations&quot;) +  annotate(&quot;text&quot;, x = -0.1, y = 600,
+  label = &quot;paste(italic(median), \&quot; = 0.42\&quot;)&quot;, parse = TRUE, color = &quot;#9a031e&quot;) + 
+  geom_vline(xintercept = 0.42, linetype = &quot;dashed&quot;, color = &quot;#9a031e&quot;) +
+  ggtitle(&quot;ProCan-DepMapSanger&quot;) +
+     theme(legend.position = &quot;none&quot;,
+      axis.text=element_text(size=15,  family=&quot;serif&quot;, color = &quot;black&quot;),
+      axis.title = element_text(size=16, family = &quot;serif&quot;, color = &quot;black&quot;)) </code></pre>
+<pre class="r"><code>overall_correlations_ccle = ccle   %&gt;%
+  ggplot(aes(x = Correlation)) + 
+  geom_histogram(color=&quot;white&quot;, alpha=1, fill = &quot;#ccd5ae&quot;) + theme_bw() +
+  labs(x=&quot;mRNA-protein correlation&quot;, 
+       y = &quot;Number of associations&quot;) +  annotate(&quot;text&quot;, x = -0.1, y = 700,
+  label = &quot;paste(italic(median), \&quot; = 0.46\&quot;)&quot;, parse = TRUE, color = &quot;#9a031e&quot;) + 
+  geom_vline(xintercept = 0.4555411, linetype = &quot;dashed&quot;, color = &quot;#9a031e&quot;) +
+  ggtitle(&quot;CCLE&quot;) +
+     theme(legend.position = &quot;none&quot;,
+      axis.text=element_text(size=15,  family=&quot;serif&quot;, color = &quot;black&quot;),
+      axis.title = element_text(size=16, family = &quot;serif&quot;, color = &quot;black&quot;)) 
+
+
+#median(cptac$Correlation,na.rm = TRUE)
+overall_correlations_cptac = cptac  %&gt;%
+  ggplot(aes(x = Correlation)) + 
+  geom_histogram(color=&quot;white&quot;, alpha=1, fill = &quot;#ccd5ae&quot;) + theme_bw() +
+  labs(x=&quot;mRNA-protein correlation&quot;, 
+       y = &quot;Number of associations&quot;) +  annotate(&quot;text&quot;, x = -0.2, y = 1250,
+  label = &quot;paste(italic(median), \&quot; = 0.38\&quot;)&quot;, parse = TRUE, color = &quot;#9a031e&quot;) + 
+  geom_vline(xintercept =0.3816182, linetype = &quot;dashed&quot;, color = &quot;#9a031e&quot;) +
+  ggtitle(&quot;CPTAC&quot;) +
+     theme(legend.position = &quot;none&quot;,
+      axis.text=element_text(size=15,  family=&quot;serif&quot;, color = &quot;black&quot;),
+      axis.title = element_text(size=16, family = &quot;serif&quot;, color = &quot;black&quot;)) 
+
+
+ggarrange(overall_correlations_cell_lines,overall_correlations_cptac,overall_correlations_ccle, ncol= 3)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/publication-figures.Rmd/unnamed-chunk-13-1.png" alt="Histogram of mRNA-protein correlations across each cohort for ProCan-DepMapSanger, CPTAC and CCLE with medians indicated" width="960" />
+<p class="caption">
+Histogram of mRNA-protein correlations across each cohort for
+ProCan-DepMapSanger, CPTAC and CCLE with medians indicated
+</p>
+</div>
+<pre class="r"><code># ggsave(filename = &quot;output/Publication/Figures/Fig_1B.png&quot;, height =4, width =4, plot = overall_correlations_cell_lines, dpi = 1200)
+# 
+# 
+# ggsave(filename = &quot;output/Publication/Figures/Fig_1C_left.png&quot;, height =4, width =4, plot = overall_correlations_cptac, dpi = 1200)
+# 
+# ggsave(filename = &quot;output/Publication/Figures/Fig_1C_right.png&quot;, height =4, width =4, plot = overall_correlations_ccle, dpi = 1200)</code></pre>
+</div>
+<div id="figure-1d" class="section level2">
+<h2>Figure 1D</h2>
+<p>Selected pathways were retrieved from Arad &amp; Geiger (2023).</p>
+<pre class="r"><code>kegg_pathways = msigdbr(species=&quot;human&quot;, category = &quot;C2&quot;, subcategory = &quot;CP:KEGG&quot;) %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::filter(gs_description %in% c(&quot;Cell cycle&quot;, &quot;Oxidative phosphorylation&quot;,
+                                      &quot;Ribosome&quot;, &quot;Proteasome&quot;, &quot;Spliceosome&quot;,
+                                      &quot;Focal adhesion&quot;, &quot;Apoptosis&quot;) )
+
+lists = split(kegg_pathways, kegg_pathways$gs_description)
+
+kegg_genes = lapply(lists , function(x){
+  x %&lt;&gt;% dplyr::select(Gene = gene_symbol)
+})
+
+pathway_genes = read_excel_allsheets(&quot;data/Pathways/Pathways-member-genes.xlsx&quot;)
+pathway_genes = lapply(pathway_genes[1:10] , function(x){
+  x %&lt;&gt;% dplyr::select(Gene)
+  }
+                       )
+
+
+tissue_matrix = correlation_data_tissue %&gt;%
+  pivot_wider(names_from  = Tissue, values_from = Correlation)  %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(-Protein)
+
+
+
+correlation_per_kegg = lapply(names(kegg_genes), function(x) {
+  pathways = kegg_genes[[x]]$Gene
+  pathway_medians = tissue_matrix %&gt;%
+  dplyr::filter(Gene %in% pathways) %&gt;%
+  dplyr::select(-c(Gene)) %&gt;%
+  summarise_all(.funs = ~median(., na.rm = TRUE)) %&gt;%
+  mutate(Pathway = x)
+
+  return(pathway_medians)
+
+
+})
+
+correlation_per_kegg %&lt;&gt;% do.call(rbind,.)
+
+
+
+
+correlation_per_pathway = lapply(names(pathway_genes), function(x) {
+  pathways = pathway_genes[[x]]$Gene
+  pathway_medians = tissue_matrix %&gt;%
+  dplyr::filter(Gene %in% pathways) %&gt;%
+  dplyr::select(-c(Gene)) %&gt;%
+  summarise_all(.funs = ~median(., na.rm = TRUE)) %&gt;%
+  mutate(Pathway = x)
+
+  return(pathway_medians)
+
+
+})</code></pre>
+<pre class="r"><code>plot = do.call(rbind, correlation_per_pathway) %&gt;%
+  dplyr::filter(Pathway %in% c(&quot;PI3K&quot;, &quot;NOTCH&quot;, &quot;WNT&quot;, &quot;RTK RAS&quot;, &quot;TGF-Beta&quot;,
+                               &quot;HIPPO&quot;)) %&gt;%
+  rbind(correlation_per_kegg) %&gt;%
+  mutate(Pathway = ifelse(Pathway == &quot;Oxidative phosphorylation&quot;, &quot;OXPHOS&quot;, Pathway)) %&gt;%
+  melt() %&gt;%
+  mutate(Pathway = factor(Pathway, levels =
+                            c(&quot;Ribosome&quot;, &quot;OXPHOS&quot;,
+                              &quot;Proteasome&quot;, &quot;Spliceosome&quot;, &quot;PI3K&quot;,
+                              &quot;NOTCH&quot;, &quot;Cell cycle&quot;, &quot;Apoptosis&quot;,
+                              &quot;WNT&quot;, &quot;RTK RAS&quot;, &quot;TGF-Beta&quot;, &quot;HIPPO&quot;,
+                              &quot;Focal adhesion&quot;))) %&gt;%
+  ggplot(aes(x=Pathway, y=value)) + geom_boxplot() +
+  theme_bw() +   theme_bw() +  #geom_jitter(aes(color = variable), size=4, shape = 1, stroke = 1.5) +
+  geom_jitter(
+    aes(color = variable,
+        #color = after_scale(darken(color, .1, space = &quot;HLS&quot;)),
+        color = after_scale(desaturate(lighten(color, .25), .4))),
+    size=3, stroke = 1
+  ) +
+ scale_color_manual(
+  values = PALETTE_TTYPE, 
+  labels = c(&quot;Breast&quot; = &quot;Breast&quot;,
+                           &quot;Central Nervous System&quot; = &quot;Central Nervous\nSystem&quot;,
+                           &quot;Head and Neck&quot; = &quot;Head and\nNeck&quot;,
+                           &quot;Esophagus&quot; = &quot;Esophagus&quot;, 
+                         &quot;Bladder&quot; = &quot;Bladder&quot;, 
+                         &quot;Skin&quot; = &quot;Skin&quot;, 
+                         &quot;Large Intestine&quot; = &quot;Large Intestine&quot;, 
+                         &quot;Kidney&quot; = &quot;Kidney&quot;, 
+                         &quot;Pancreas&quot; = &quot;Pancreas&quot;, 
+                         &quot;Soft Tissue&quot; = &quot;Soft Tissue&quot;, 
+                         &quot;Thyroid&quot; = &quot;Thyroid&quot;, 
+                         &quot;Peripheral Nervous System&quot; = &quot;Peripheral Nervous\nSystem&quot;, 
+                         &quot;Bone&quot; = &quot;Bone&quot;, 
+                         &quot;Ovary&quot; = &quot;Ovary&quot;, 
+                         &quot;Haematopoietic and Lymphoid&quot; = &quot;Haematopoietic\nand Lymphoid&quot;, 
+                         &quot;Stomach&quot; = &quot;Stomach&quot;, 
+                         &quot;Lung&quot; = &quot;Lung&quot;, 
+                         &quot;Liver&quot; = &quot;Liver&quot;, 
+                         &quot;Cervix&quot; = &quot;Cervix&quot;))  + # Split into 6 rows
+  labs(y= &quot;Median mRNA-protein correlation&quot;,
+       color = &quot;Tissue&quot;) + theme(legend.position = &quot;top&quot;,
+        legend.spacing.y = unit(0, &quot;mm&quot;),
+        panel.border = element_rect(colour = &quot;black&quot;, fill=NA),
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = &quot;black&quot;),
+    legend.text = element_text(family = &quot;serif&quot;, size=18),
+    legend.title = element_text(family = &quot;serif&quot;, size=18)) +
+  theme(axis.text.x = element_text( color = &quot;black&quot;, size =25, family = &quot;serif&quot;, hjust = 1),
+        axis.text.y = element_text(color = &quot;black&quot;, size =25, family = &quot;serif&quot;),
+        axis.title = element_text(color = &quot;black&quot;, size =25, family = &quot;serif&quot;),
+        legend.position = &quot;right&quot;, legend.spacing.x = unit(0.8, &#39;cm&#39;)) + xlab(&quot;&quot;) + coord_flip()
+plot</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/publication-figures.Rmd/unnamed-chunk-16-1.png" alt="Boxplot showing median mRNA-protein correlations by tissue in the ProCan-DepMapSanger dataset for key biological and selected cancer-related pathways" width="1440" />
+<p class="caption">
+Boxplot showing median mRNA-protein correlations by tissue in the
+ProCan-DepMapSanger dataset for key biological and selected
+cancer-related pathways
+</p>
+</div>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Fig_1D.png&quot;, height =11, width =11, plot = plot, dpi = 1200)
+
+
+  # pathways_procanDepMap = do.call(rbind, correlation_per_pathway) %&gt;%
+  # dplyr::filter(Pathway %in% c(&quot;PI3K&quot;, &quot;NOTCH&quot;, &quot;WNT&quot;, &quot;RTK RAS&quot;, &quot;TGF-Beta&quot;,
+  #                              &quot;HIPPO&quot;)) %&gt;%
+  # rbind(correlation_per_kegg) %&gt;%
+  # mutate(Pathway = ifelse(Pathway == &quot;Oxidative phosphorylation&quot;, &quot;OXPHOS&quot;, Pathway)) %&gt;%
+  # melt() %&gt;%
+  # mutate(Pathway = factor(Pathway, levels =
+  #                           c(&quot;Ribosome&quot;, &quot;OXPHOS&quot;,
+  #                             &quot;Proteasome&quot;, &quot;Spliceosome&quot;, &quot;PI3K&quot;,
+  #                             &quot;NOTCH&quot;, &quot;Cell cycle&quot;, &quot;Apoptosis&quot;,
+  #                             &quot;WNT&quot;, &quot;RTK RAS&quot;, &quot;TGF-Beta&quot;, &quot;HIPPO&quot;,
+  #                             &quot;Focal adhesion&quot;))) %&gt;%
+  # mutate(Dataset= c(&quot;ProCan-DepMapSanger&quot;))
+
+#write.csv(pathways_procanDepMap, file = &quot;output/ProCan-DepMapSanger-Pathways.csv&quot;)</code></pre>
+</div>
+<div id="fig-1e" class="section level2">
+<h2>Fig 1E</h2>
+<pre class="r"><code>pathways_across_datasets = read.table(&quot;output/Other/Pathways_median_all_datasets.tsv&quot;, sep = &quot;\t&quot;, header =TRUE)
+
+
+
+median_pathway &lt;- pathways_across_datasets %&gt;%
+  group_by(Pathway, Dataset) %&gt;%  # Group by Pathway and Dataset
+  summarise(Median_Correlation = median(`Median.Correlation`, na.rm = TRUE), .groups = &quot;drop&quot;) %&gt;% 
+  as.data.frame() %&gt;% 
+  pivot_wider(names_from = Dataset, values_from = Median_Correlation) %&gt;% as.data.frame() %&gt;% 
+  dplyr::rename(ProCan = `ProCan-DepMapSanger`)
+
+library(ggpubr)
+
+
+
+pathways_cor_1 = median_pathway %&gt;%
+
+ ggplot(aes(x = `CPTAC`, y = ProCan)) +
+  geom_point(size =3) + geom_smooth(method = &quot;lm&quot;, color = &quot;blue&quot;, fill = &quot;lightgray&quot;, se = TRUE) +
+   theme_bw() + xlab(&quot;CPTAC&quot;) +
+  ylab(&quot;ProCan-DepMapSanger&quot;) +
+  annotate(&quot;text&quot;, x = 0.22, y = 0.5, size = 5,
+  label = &quot;paste(italic(r), \&quot; = 0.85, \&quot;, italic(p), \&quot; = 0.00034\&quot;)&quot;, 
+  parse = TRUE, color = &quot;black&quot;) +
+  theme(axis.text.x = element_text(size = 25, family = &quot;serif&quot;, color = &quot;black&quot;),
+            axis.text.y = element_text(size = 25, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=25, family = &quot;serif&quot;),
+         legend.box.background = element_rect(color = &quot;black&quot;),
+          legend.text = element_text(family = &quot;serif&quot;),
+          legend.title = element_text( family = &quot;serif&quot;),
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line( size=.1 ),
+              legend.position = &quot;top&quot;,
+        strip.text.y = element_text(
+        size = 16, face = &quot;bold.italic&quot;, family = &quot;serif&quot;
+        ),
+         strip.text.x = element_text(
+        size = 16, family = &quot;serif&quot;
+        )) 
+ 
+
+# 
+# ggsave(filename = &quot;output/Publication/Figures/Fig_1E_upper.png&quot;,height = 5, width = 8, plot =pathways_cor_1, dpi = 1200 )
+
+
+pathways_cor_2 = median_pathway %&gt;% 
+ ggplot(aes(x = `CPTAC`, y = CCLE)) +
+  geom_point(size =3) + geom_smooth(method = &quot;lm&quot;, color = &quot;blue&quot;, fill = &quot;lightgray&quot;, se = TRUE) +
+   theme_bw() + xlab(&quot;CPTAC&quot;) +
+  ylab(&quot;CCLE&quot;) +
+  annotate(&quot;text&quot;, x = 0.22, y = 0.57, size = 5,
+  label = &quot;paste(italic(r), \&quot; = 0.74, \&quot;, italic(p), \&quot; = 0.0053\&quot;)&quot;, 
+  parse = TRUE, color = &quot;black&quot;) +
+  theme(axis.text.x = element_text(size = 25, family = &quot;serif&quot;, color = &quot;black&quot;),
+            axis.text.y = element_text(size = 25, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=25, family = &quot;serif&quot;),
+         legend.box.background = element_rect(color = &quot;black&quot;),
+          legend.text = element_text(family = &quot;serif&quot;),
+          legend.title = element_text( family = &quot;serif&quot;),
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line( size=.1 ),
+              legend.position = &quot;top&quot;,
+        strip.text.y = element_text(
+        size = 16, face = &quot;bold.italic&quot;, family = &quot;serif&quot;
+        ),
+         strip.text.x = element_text(
+        size = 16, family = &quot;serif&quot;
+        )) 
+ 
+
+
+pathways_cor_2</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># ggsave(filename = &quot;output/Publication/Figures/Fig_1E_lower.png&quot;,height = 5, width = 8, plot =pathways_cor_2, dpi = 1200 )</code></pre>
+</div>
+</div>
+<div id="figure-2" class="section level1">
+<h1>Figure 2</h1>
+<div id="figure-2a" class="section level2">
+<h2>Figure 2A</h2>
+<pre class="r"><code>drivers = read.delim(here::here(&quot;data/OncoKb/cancerGeneList.tsv&quot;), fill=TRUE, check.names = FALSE)</code></pre>
+<pre class="r"><code>file_dir = file.path(&quot;/Users/unawaz/Documents/2023/RNA-protein-correlationx/Data/&quot;)
+correlation_data_tissue = read.csv(&quot;output/correlations-datasets/correlation-tissue-nontransformed.csv&quot;, row.names = 1) 
+matrix_tissue = pivot_wider(correlation_data_tissue, names_from  = Tissue, values_from = Correlation)  %&gt;% 
+  as.data.frame() %&gt;% 
+  column_to_rownames(&quot;Gene&quot;) 
+
+
+driver_matrix = matrix_tissue %&gt;%
+  rownames_to_column(&quot;Gene&quot;) %&gt;%
+  dplyr::filter(Gene %in% drivers$`Hugo Symbol`) %&gt;%
+  dplyr::select(-Protein) %&gt;%
+  column_to_rownames(&quot;Gene&quot;)
+
+
+tmp=rowSums(is.na(driver_matrix) )
+
+tmp=tmp[tmp&lt;5]
+
+
+matrix_drivers=driver_matrix[names(tmp),]
+
+matrix_drivers %&lt;&gt;% as.matrix()
+
+
+#km = kmeans(na.omit(matrix_drivers), 10)</code></pre>
+<pre class="r"><code>heatmap_viz= matrix_drivers %&gt;%
+  #  drop_na() %&gt;%
+
+pheatmap::pheatmap( border_color = &quot;white&quot;,
+         breaks = seq(-1,1, length.out=100),
+         color = colorRampPalette(c(&quot;#2F124b&quot;, &quot;#6e74b4&quot;, &quot;#f9f9f9&quot;,
+                                    &quot;#fd9675&quot;, &quot;#Ea2a5f&quot;))(100),
+         na_col = &quot;darkgrey&quot;, cutree_rows    = 5, show_rownames = FALSE, fontsize_col=12)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/publication-figures.Rmd/unnamed-chunk-20-1.png" alt=" Heatmap of mRNA-protein correlations across tissue types for cancer driver genes from OncoKB" width="576" />
+<p class="caption">
+Heatmap of mRNA-protein correlations across tissue types for cancer
+driver genes from OncoKB
+</p>
+</div>
+<pre class="r"><code>#ggsave(plot = heatmap_viz, filename = &quot;output/Publication/Figures/Fig_2A.png&quot;,
+ #      height = 8, width = 8, dpi = 1200)</code></pre>
+</div>
+<div id="figure-2b" class="section level2">
+<h2>Figure 2B</h2>
+<pre class="r"><code>matrix_tissue = pivot_wider(correlation_data_tissue, names_from  = Tissue, values_from = Correlation)  %&gt;%
+  as.data.frame() %&gt;%
+  column_to_rownames(&quot;Gene&quot;) %&gt;%
+  dplyr::select(-Protein)</code></pre>
+<pre class="r"><code>drivers = read.delim(here::here(&quot;data/OncoKb/cancerGeneList.tsv&quot;), fill=TRUE, check.names = FALSE)
+tmp=rowSums(is.na(matrix_tissue ) )
+
+tmp=tmp[tmp&lt;5]
+
+matrix_filtered=matrix_tissue[names(tmp),]
+
+n_counts &lt;- correlation_overall %&gt;%
+  dplyr::filter(Protein %in% rownames(matrix_filtered)) %&gt;%
+  mutate(Gene = ifelse(Protein %in% drivers$`Hugo Symbol`, &quot;Cancer Driver&quot;, &quot;Non-Driver&quot;)) %&gt;%
+  ungroup() %&gt;%  # Remove any grouping
+  mutate(Gene = as.character(Gene)) %&gt;%  # Convert to character
+  group_by(Gene) %&gt;%  # Group by Gene
+  summarise(n = n(), .groups = &quot;drop&quot;) %&gt;%  # Count occurrences
+  mutate(Label = paste0(Gene, &quot;\n(n = &quot;, n, &quot;)&quot;))  # Create formatted labels
+
+
+drivers_v_nondrivers &lt;- correlation_overall %&gt;%
+  dplyr::filter(Protein %in% rownames(matrix_filtered)) %&gt;%
+  mutate(Gene = ifelse(Protein %in% drivers$`Hugo Symbol`, &quot;Cancer Driver&quot;, &quot;Non-Driver&quot;)) %&gt;%
+  mutate(Gene = factor(Gene, levels = c(&quot;Non-Driver&quot;, &quot;Cancer Driver&quot;))) %&gt;%
+  ggplot(aes(x = Gene, y = Correlation, fill = Gene)) +
+
+  # Violin plot
+  geom_violin(alpha = 0.6) +
+
+  # Boxplot
+  geom_boxplot(width = 0.2, fill = &quot;white&quot;, outlier.shape = NA) +
+
+  # Add significance test
+  geom_signif(comparisons = list(c(&quot;Non-Driver&quot;, &quot;Cancer Driver&quot;)),
+              map_signif_level = TRUE,
+               annotations = &quot;****&quot;) +
+
+
+
+  # Custom colors
+  scale_fill_manual(values = c(&quot;Cancer Driver&quot; = &quot;#f08080&quot;, &quot;Non-Driver&quot; = &quot;#adb5bd&quot;)) +
+    scale_x_discrete(labels = setNames(n_counts$Label, n_counts$Gene)) +
+
+  # Labels and theme
+  labs(y = &quot;mRNA-protein correlation&quot;, x = &quot;&quot;) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+    axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+    axis.title = element_text(size = 20, family = &quot;serif&quot;),
+    legend.box.background = element_rect(color = &quot;black&quot;),
+    legend.text = element_text(family = &quot;serif&quot;, size=15),
+    legend.title = element_text(family = &quot;serif&quot;, size=15),
+    plot.title = element_text(family = &quot;serif&quot;, size = 20),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(size = 0.1),
+    legend.position = &quot;top&quot;,
+    strip.text.y = element_text(size = 10, face = &quot;bold.italic&quot;, family = &quot;serif&quot;),
+    strip.text.x = element_text(size = 10, family = &quot;serif&quot;)
+  )
+
+drivers_v_nondrivers</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Fig_2B.png&quot;,height = 6.5, width = 6, plot =drivers_v_nondrivers, dpi = 1200 )
+# 
+# library(ggsignif)
+# library(superb)
+# correlation_data_tissue %&gt;%
+#   dplyr::filter(Gene %in% rownames(matrix_filtered)) %&gt;%
+#     mutate(Drivers = ifelse(Gene %in% drivers$`Hugo Symbol`, &quot;Cancer Driver&quot;, &quot;Non-Driver&quot;)) %&gt;% with(table(.$Drivers))
+#   mutate(Drivers = factor(Drivers, levels = c(&quot;Non-Driver&quot;, &quot;Cancer Driver&quot;))) %&gt;%
+#   ggplot(aes(x=Drivers, y = Correlation)) + geom_boxplot() + ylab(&quot;&quot;)  +
+#    showSignificance( c(1,2), 7.5, -0.05, &quot;**&quot;)
+# 
+# drivers= correlation_data_tissue %&gt;%
+#   dplyr::filter(Gene %in% rownames(matrix_filtered)) %&gt;%
+#     mutate(Drivers = ifelse(Gene %in% drivers$`Hugo Symbol`, &quot;Cancer Driver&quot;, &quot;Non-Driver&quot;)) %&gt;%
+#   dplyr::filter(Drivers == &quot;Cancer Driver&quot;)
+# 
+# ndrivers= correlation_data_tissue %&gt;%
+#   dplyr::filter(Gene %in% rownames(matrix_filtered)) %&gt;%
+#     mutate(Drivers = ifelse(Gene %in% drivers$`Hugo Symbol`, &quot;Cancer Driver&quot;, &quot;Non-Driver&quot;)) %&gt;%
+#   dplyr::filter(Drivers == &quot;Non-Driver&quot;)
+# 
+# 
+# t_test_result &lt;- t.test(ndrivers$Correlation, drivers$Correlation, var.equal = TRUE)</code></pre>
+</div>
+<div id="figure-2c" class="section level2">
+<h2>Figure 2C</h2>
+<pre class="r"><code>matrix &lt;- matrix_drivers[c(heatmap_viz$tree_row[[&quot;order&quot;]]),heatmap_viz$tree_col[[&quot;order&quot;]]]
+clusters= cutree(heatmap_viz$tree_row, k=5)[heatmap_viz$tree_row[[&quot;order&quot;]]] %&gt;%
+  as.data.frame() %&gt;%
+  set_colnames(&quot;Cluster&quot;)
+
+
+clusters$clusters &lt;- NA
+
+clusters$clusters[clusters$Cluster == 5] &lt;- 1
+clusters$clusters[clusters$Cluster == 1] &lt;- 2
+clusters$clusters[clusters$Cluster == 4] &lt;- 3
+clusters$clusters[clusters$Cluster == 3] &lt;- 4
+clusters$clusters[clusters$Cluster == 2] &lt;- 5
+
+
+clusters %&gt;%
+   as.data.frame() %&gt;%
+   rownames_to_column(&quot;Gene&quot;) %&gt;%
+   inner_join(matrix_drivers %&gt;% melt() %&gt;%
+                dplyr::rename(&quot;Gene&quot; = &quot;Var1&quot;,  &quot;Correlation&quot; = &quot;value&quot; ), by = &quot;Gene&quot;) %&gt;%
+   group_by(Cluster) %&gt;%
+   mutate(median= median(Correlation, na.rm =TRUE)) %&gt;%
+   distinct(&quot;median&quot;, .keep_all = T)</code></pre>
+<pre><code># A tibble: 5 × 7
+# Groups:   Cluster [5]
+  Gene   Cluster clusters Var2    Correlation median `&quot;median&quot;`
+  &lt;chr&gt;    &lt;int&gt;    &lt;dbl&gt; &lt;fct&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     
+1 CREB1        5        1 Bladder      -0.455  0.216 median    
+2 CTNNB1       1        2 Bladder       0.523  0.156 median    
+3 RAC2         4        3 Bladder       0.691  0.674 median    
+4 CTNNA1       3        4 Bladder       0.179  0.336 median    
+5 MET          2        5 Bladder       0.641  0.452 median    </code></pre>
+<pre class="r"><code>clusters_drivers = clusters %&gt;%
+  as.data.frame() %&gt;%
+  rownames_to_column(&quot;Gene&quot;) %&gt;%
+  inner_join(matrix_drivers %&gt;% melt() %&gt;%
+               dplyr::rename(&quot;Gene&quot; = &quot;Var1&quot;,  &quot;Correlation&quot; = &quot;value&quot; ), by = &quot;Gene&quot;) %&gt;%
+  group_by(clusters) %&gt;%
+  mutate(median= median(Correlation, na.rm =TRUE)) %&gt;%
+  ungroup() %&gt;%
+  ggplot(aes(x=Correlation)) +
+   geom_histogram(color=&quot;black&quot;, alpha=0.4, fill = &quot;#6e74b4&quot;) + theme_bw() +
+  facet_grid(rows = vars(Cluster), scales = &quot;free_y&quot;) + ylab(&quot;Number of Proteins&quot;) +
+  geom_vline(aes(xintercept = median), linetype = &quot;dashed&quot;, color = &quot;#9a031e&quot;, size =1) +
+    theme(legend.position = &quot;top&quot;,
+                          legend.title = element_blank(),
+        legend.spacing.y = unit(0, &quot;mm&quot;),
+        panel.border = element_rect(colour = &quot;black&quot;, fill=NA),
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = &quot;black&quot;)) +
+  theme(axis.text.x = element_text( color = &quot;black&quot;, size =16, family = &quot;serif&quot;, hjust = 1),
+        axis.text.y = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
+        axis.title = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
+        legend.position = &quot;top&quot;) + xlab(&quot;mRNA-protein correlation&quot;)
+
+clusters_drivers</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code> # ggsave(plot = clusters_drivers, filename = &quot;output/Publication/Figures/Figure_2b_update.png&quot;,
+#        height = 8, width = 7, dpi = 1200)
+
+# 
+ cluster_full = correlation_data_tissue %&gt;%
+   left_join(clusters %&gt;%
+               rownames_to_column(&quot;Gene&quot;), by = &quot;Gene&quot;)
+write.csv(cluster_full, &quot;output/Publication/Data/clusters.csv&quot;)</code></pre>
+<div id="gene-ontologies" class="section level3">
+<h3>Gene ontologies</h3>
+<pre class="r"><code>universe = correlation_data_tissue$Protein %&gt;%
+  as.data.frame() %&gt;%
+  set_colnames(&quot;Proteins&quot;) %&gt;%
+  mutate(&quot;Protein_name&quot; = gsub(&quot;;.*&quot;, &quot;&quot;, Proteins)) %&gt;%
+  mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein_name,
+                         keytype = &quot;UNIPROT&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
+  mutate(&quot;Entrez&quot; = mapIds(org.Hs.eg.db, keys = Protein_name,
+                         keytype = &quot;UNIPROT&quot;, column = &quot;ENTREZID&quot;, multiVals=&quot;first&quot;))</code></pre>
+<pre class="r"><code>library(clusterProfiler)
+gene_ontology = list()
+for (clus in unique(clusters$clusters)) {
+  df =  clusters %&gt;%
+    dplyr::filter(clusters == clus) %&gt;%
+    rownames_to_column(&quot;Gene&quot;) %&gt;%
+      mutate(&quot;Entrez&quot; = mapIds(org.Hs.eg.db, keys = Gene,
+                         keytype = &quot;SYMBOL&quot;, column = &quot;ENTREZID&quot;, multiVals=&quot;first&quot;))
+
+  ego = enrichGO(gene          = df$Entrez,
+                universe      = universe$Entrez,
+                OrgDb         = org.Hs.eg.db,
+                ont           = &quot;ALL&quot;,
+                pAdjustMethod = &quot;BH&quot;,
+                pvalueCutoff  = 0.01,
+                qvalueCutoff  = 0.05,
+        readable      = TRUE)
+
+  gene_ontology[[paste0(&quot;cluster&quot;, clus)]] = head(ego, n=100) %&gt;%
+    as.data.frame() %&gt;%
+    dplyr::select( Description, &quot;p.adjust&quot;, &quot;qvalue&quot;, geneID, Count) %&gt;%
+    mutate(Cluster = paste(&quot;Cluster&quot;, clus))
+
+}
+
+
+gene_ontology_top = lapply(gene_ontology, function(x){
+  ont= x %&gt;%
+    arrange(qvalue) %&gt;%
+    head(200)
+  return(ont)
+})
+
+#library(openxlsx)
+#write.xlsx(gene_ontology_top, file = &quot;output/Publication/Data/Gene-ontology-Figure2b.xlsx&quot;)</code></pre>
+<pre class="r"><code># library(viridis)
+# gene_ontology_top$cluster1 %&gt;%
+#   ggplot(aes(y=Description, x =-log10(p.adjust),
+#              size = Count, color=-log10(p.adjust))) + geom_point() +
+#   theme_bw() +  scale_color_viridis(option = &quot;F&quot;) +
+#   theme(axis.text = element_text(family=&quot;serif&quot;, size=10, color = &quot;black&quot;)) +
+#   labs(y=&quot;&quot;,
+#        title = &quot;Cluster 1&quot;)
+# 
+# gene_ontology_top$cluster2 %&gt;%
+#   ggplot(aes(y=Description, x =-log10(p.adjust),
+#              size = Count, color=-log10(p.adjust))) + geom_point() +
+#   theme_bw() +  scale_color_viridis(option = &quot;F&quot;) +
+#   theme(axis.text = element_text(family=&quot;serif&quot;, size=10, color = &quot;black&quot;)) +
+#   labs(y=&quot;&quot;,
+#        title = &quot;Cluster 2&quot;)
+# 
+# gene_ontology_top$cluster3 %&gt;%
+#   ggplot(aes(y=Description, x =-log10(p.adjust),
+#              size = Count, color=-log10(p.adjust))) + geom_point() +
+#   theme_bw() +  scale_color_viridis(option = &quot;F&quot;) +
+#   theme(axis.text = element_text(family=&quot;serif&quot;, size=10, color = &quot;black&quot;)) +
+#   labs(y=&quot;&quot;,
+#        title = &quot;Cluster 3&quot;)</code></pre>
+<pre class="r"><code>cluster_full = clusters %&gt;%
+  as.data.frame() %&gt;%
+  rownames_to_column(&quot;Gene&quot;) %&gt;%
+  inner_join(matrix_drivers %&gt;% melt() %&gt;%
+               dplyr::rename(&quot;Gene&quot; = &quot;Var1&quot;,  &quot;Correlation&quot; = &quot;value&quot; ), by = &quot;Gene&quot;) %&gt;%
+  dplyr::select(-Cluster)
+
+#write.csv(cluster_full, &quot;output/Publication/Data/clusters.csv&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div id="figure-3" class="section level1">
+<h1>Figure 3</h1>
+<div id="figure-3a" class="section level2">
+<h2>Figure 3A</h2>
+<pre class="r"><code>correlation_overall= read.csv(&quot;output/correlations-datasets/correlation-all-nontransformed.csv&quot;,
+                            header=TRUE, row.names = 1) %&gt;%
+  drop_na()
+
+ranks = read_excel(&quot;data/Ranks/1-s2.0-S2667237522001709-mmc3.xlsx&quot;, sheet=3) %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::rename(&quot;Gene&quot; = &quot;...1&quot;) %&gt;%
+  mutate(Bin = case_when(
+    between(`Aggregated Reproducibility Rank`, 0, 0.2) ~ &quot;0 - 0.2&quot;,
+    between(`Aggregated Reproducibility Rank`, 0.2, 0.4) ~ &quot;0.2 - 0.4&quot;,
+    between(`Aggregated Reproducibility Rank`, 0.4, 0.6) ~ &quot;0.4 - 0.6&quot;,
+    between(`Aggregated Reproducibility Rank`, 0.6, 0.8) ~ &quot;0.6 - 0.8&quot;,
+    between(`Aggregated Reproducibility Rank`, 0.8, 1) ~ &quot;0.8 - 1&quot;
+  )) %&gt;%
+  mutate(Bin = factor(Bin, levels = c(&quot;-1 - -0.8&quot;,&quot;-0.8 - -0.6&quot;,
+                                  &quot;-0.6 - -0.4&quot;, &quot;-0.4 - -0.2&quot;,
+                                  &quot;-0.2 - 0&quot;,&quot;0 - 0.2&quot;,
+                                  &quot;0.2 - 0.4&quot;, &quot;0.4 - 0.6&quot;,
+                                  &quot;0.6 - 0.8&quot;,
+                                  &quot;0.8 - 1&quot;)))
+
+
+ranks_plot = correlation_overall %&gt;%
+  dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;) %&gt;%
+  inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
+  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
+    ggplot(aes(x=Bin, y = `Correlation`)) + geom_boxplot(fill=&quot;#be95c4&quot;) + theme_bw() +
+  labs(x=&quot;Aggregated protein reproducibility rank\n(binned)&quot;,
+       y=&quot;mRNA-protein correlation&quot;) +
+  #annotate(&quot;text&quot;, x = 1, y = 0.9, size=6,
+  #label = &quot;paste(italic(r), \&quot; = 0.48\&quot;)&quot;, parse = TRUE, color = &quot;black&quot;) +
+  theme(axis.text.x = element_text( color = &quot;black&quot;, size =12),
+        axis.text.y = element_text(color = &quot;black&quot;, size =12),
+        axis.title = element_text(color = &quot;black&quot;, size =15)) +
+    theme(
+        axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+         axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=20, family = &quot;serif&quot;),
+         legend.box.background = element_rect(color = &quot;black&quot;),
+          legend.text = element_text(family = &quot;serif&quot;),
+          legend.title = element_text( family = &quot;serif&quot;),
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
+        panel.grid.major.x = element_blank(),
+              legend.position = &quot;top&quot;) +  ggtitle(&quot;ProCan-DepMapSanger&quot;)
+
+
+ranks_plot</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-28-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>correlation_overall %&gt;%
+  dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;) %&gt;%
+  inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
+  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
+  with(cor.test(.$Correlation, .$`Aggregated Reproducibility Rank`, method = &quot;spearman&quot;))</code></pre>
+<pre><code>
+    Spearman&#39;s rank correlation rho
+
+data:  .$Correlation and .$`Aggregated Reproducibility Rank`
+S = 7150068182, p-value &lt; 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.4904966 </code></pre>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Fig_3A_upper.png&quot;, height =3.5, width =7, plot = ranks_plot, dpi = 1200)</code></pre>
+<pre class="r"><code>library(ggpubr)
+
+correlation_ranks = correlation_overall %&gt;%
+  dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;) %&gt;%
+  inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
+  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
+ ggplot(aes(x = `Aggregated Reproducibility Rank`, y = Correlation)) +
+  geom_point(size =3) + geom_smooth(method = &quot;lm&quot;, color = &quot;blue&quot;, fill = &quot;lightgray&quot;, se = TRUE) +
+    theme_bw() + ylab(&quot;mRNA-protein correlation&quot;) +
+  xlab(&quot;Aggregated protein reproducibility rank&quot;) +
+  annotate(&quot;text&quot;, x = 0.2, y = 0.85, size = 6,
+  label = &quot;paste(italic(r), \&quot; = 0.49, \&quot;, italic(p), \&quot; &lt; 2.2e-16\&quot;)&quot;,
+  parse = TRUE, color = &quot;blue&quot;) +
+  theme(axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+            axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=20, family = &quot;serif&quot;),
+         legend.box.background = element_rect(color = &quot;black&quot;),
+          legend.text = element_text(family = &quot;serif&quot;),
+          legend.title = element_text( family = &quot;serif&quot;),
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line( size=.1 ),
+              legend.position = &quot;top&quot;,
+        strip.text.y = element_text(
+        size = 16, face = &quot;bold.italic&quot;, family = &quot;serif&quot;
+        ),
+         strip.text.x = element_text(
+        size = 16, family = &quot;serif&quot;
+        ))
+
+correlation_ranks</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Fig_3A_lower.png&quot;, height =3.5, width =7, plot = correlation_ranks, dpi = 1200)</code></pre>
+</div>
+<div id="figure-3b" class="section level2">
+<h2>Figure 3B</h2>
+<pre class="r"><code>drivers = read.delim(here::here(&quot;data/OncoKb/cancerGeneList.tsv&quot;), fill=TRUE, check.names = FALSE)
+
+
+ranks_all_1 = correlation_overall %&gt;%
+dplyr::rename(&quot;Gene&quot;= &quot;Protein&quot;) %&gt;%
+  inner_join(ranks, by = &quot;Gene&quot;)</code></pre>
+<pre class="r"><code>library(ggpubr)
+drivers_of_interest_1 = c(&quot;CTNNB1&quot;, &quot;EGFR&quot;,&quot;IDH2&quot;,&quot;RAC2&quot;,&quot;LCP1&quot;,&quot;ALDH2&quot;, &quot;CPS1&quot;, &quot;KMT2D&quot;, &quot;DPYD&quot;)
+drivers_of_interest = c(&quot;CTNNB1&quot;, &quot;EGFR&quot;,&quot;IDH2&quot;,&quot;ALDH2&quot;,&quot;KMT2D&quot;)
+
+ranks_all_1 %&lt;&gt;%
+  mutate(Drivers = ifelse(Gene %in% drivers$`Hugo Symbol`, &quot;Cancer Driver&quot;, &quot;Non-Driver&quot;)) %&gt;%
+  dplyr::select(-c(`Ovarian Reproducibility Rank`, `Colon Reproducibility Rank`, `CCLE Reproducibility Rank`)) %&gt;%
+  dplyr::select(Gene, everything())
+
+
+ranks_v_correlation = ranks_all_1 %&gt;%
+  mutate(Drivers = ifelse(Gene %in% drivers$`Hugo Symbol`, &quot;Cancer Driver&quot;, &quot;Non-Driver&quot;),
+         Gene_label = ifelse(Gene %in% drivers_of_interest, Gene, NA)) %&gt;%
+
+    ggscatter(.,x=&quot;Correlation&quot;, y =&quot;Aggregated Reproducibility Rank&quot;, add = &quot;reg.line&quot;,
+               color = &quot;Drivers&quot;,size = &quot;Drivers&quot;, shape = &quot;Drivers&quot;, add.params = list(color = &quot;blue&quot;,
+                                                 fill = &quot;lightgray&quot;), alpha = &quot;Drivers&quot;,  cor.method = &quot;spearman&quot;, cor.coef.size = 5.5) +
+    theme_bw() + xlab(&quot;mRNA-protein correlation&quot;) +
+  ylab(&quot;Aggregated protein reproducibility rank&quot;) +
+  annotate(&quot;text&quot;, x = -0.2, y = 0.95, size = 6,
+  label = &quot;paste(italic(r), \&quot; = 0.49, \&quot;, italic(p), \&quot; &lt; 2.2e-16\&quot;)&quot;,
+  parse = TRUE, color = &quot;blue&quot;)+
+
+
+  geom_vline(xintercept = 0.5, size = 0.7, lty = &quot;dashed&quot;, color = &quot;grey60&quot;) + theme(legend.position = &quot;none&quot;) +
+  geom_hline(yintercept = 0.4 , size = 0.7, lty = &quot;dashed&quot;, color = &quot;grey60&quot;) +
+  theme(axis.text.x = element_text(size = 26, family = &quot;serif&quot;, color = &quot;black&quot;),
+            axis.text.y = element_text(size = 26, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=26, family = &quot;serif&quot;),
+         legend.box.background = element_rect(color = &quot;black&quot;),
+          legend.text = element_text(family = &quot;serif&quot;, size =22),
+          legend.title = element_text( family = &quot;serif&quot;, size =22),
+           plot.title = element_text(family = &quot;serif&quot;, size =23),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line( size=.1 ),
+              legend.position = &quot;top&quot;,
+        strip.text.y = element_text(
+        size = 16, face = &quot;bold.italic&quot;, family = &quot;serif&quot;
+        ),
+         strip.text.x = element_text(
+        size = 16, family = &quot;serif&quot;
+        )) + scale_shape_manual(values = c(&quot;Cancer Driver&quot; = 17,
+                                           &quot;CTNNB1&quot; = 17,
+                                           &quot;CPS1&quot; = 17,
+                                           &quot;KMT2D&quot; = 17,
+                                           &quot;MYH11&quot; = 17,
+                                            &quot;DPYD&quot; = 17,
+                                           &quot;Non-Driver&quot; = 19)) +
+  scale_size_manual(values = c(&quot;Cancer Driver&quot; = 6,
+                                           &quot;CTNNB1&quot; = 6,
+                                           &quot;MYH11&quot; = 6,
+                                           &quot;CPS1&quot; = 6,
+                                           &quot;KMT2D&quot; = 6,
+                                            &quot;DPYD&quot; = 6,
+                                           &quot;Non-Driver&quot; = 3)) +
+  scale_color_manual(values = c(&quot;Non-Driver&quot; = &quot;lightgrey&quot;,
+                                &quot;Cancer Driver&quot; = &quot;#ad2831&quot;,
+                                &quot;CTNNB1&quot; = &quot;#ad2831&quot;,
+                                           &quot;CPS1&quot; = &quot;#ad2831&quot;,
+                                           &quot;KMT2D&quot; = &quot;#ad2831&quot;,
+                                &quot;DPYD&quot; = &quot;#ad2831&quot;,
+                                &quot;MYH11&quot; = &quot;#ad2831&quot;)) +
+  theme(legend.position = &quot;top&quot;) +
+    scale_alpha_manual(values = c(&quot;Non-Driver&quot; = 0.45,
+                                &quot;Cancer Driver&quot; = 1,
+                                &quot;CTNNB1&quot; = 1,
+                                           &quot;TPR&quot; = 1,
+                                           &quot;EGFR&quot; = 1,
+                                           &quot;LPP&quot; = 1,
+                                           &quot;MTOR&quot; = 1,
+                                           &quot;IDH2&quot; = 1,
+                                &quot;MYH11&quot; = 1)) +
+  geom_text(
+    data = . %&gt;% dplyr::filter(!is.na(Gene_label)),  # Filter data to only include rows with labels
+    aes(label = Gene_label),  # Use the Gene_label column for labels
+    vjust = -0.3,
+    hjust = -0.001,
+    color = &quot;black&quot;,
+    size = 6.5,
+    family = &quot;serif&quot;,
+  ) + labs(alpha = &quot;Gene&quot;,
+           shape = &quot;Gene&quot;,
+           colour = &quot;Gene&quot;,
+           size = &quot;Gene&quot;)
+
+ranks_v_correlation</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-31-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Fig_3B.png&quot;, height =9, width = 10, plot = ranks_v_correlation, dpi = 1200)</code></pre>
+</div>
+<div id="figure-3c" class="section level2">
+<h2>Figure 3C</h2>
+<pre class="r"><code>correlation_data_tissue = read.csv(&quot;output/correlations-datasets/correlation-tissue-nontransformed.csv&quot;, row.names = 1)
+ranks_all = correlation_data_tissue %&gt;%
+  inner_join(ranks, by = &quot;Gene&quot;)</code></pre>
+<pre class="r"><code>cr_correlations &lt;- read.csv(&quot;output/correlations-datasets/correlation-tissue-cptac-linkedomics.csv&quot;, row.names = 1) %&gt;%
+  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;%
+   mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein,
+                        keytype = &quot;ENSEMBL&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;))
+
+ccle = read.csv(&quot;output/correlations-datasets/CCLE-correlations-tissue.csv&quot;, row.names = 1)</code></pre>
+<ul>
+<li>ALDH2</li>
+</ul>
+<pre class="r"><code>ALDH2  = ranks_all %&gt;%
+  ggplot(aes(Correlation)) +
+   geom_density(data=ranks_all, color=&quot;darkgrey&quot;, size = 1) +
+      geom_density(data=dplyr::filter(cr_correlations, Gene == &quot;ALDH2&quot;), color=&quot;#e3a3b3&quot;, size = 1.5, lty =&quot;dashed&quot;, alpha = 0.5) +
+   geom_density(data=dplyr::filter(ccle, Protein == &quot;ALDH2&quot;), color=&quot;#6e0b24&quot;, size = 1.5, lty =&quot;dotted&quot;, alpha =0.5) +
+  geom_density(data=dplyr::filter(ranks_all, Gene == &quot;ALDH2&quot;), color=&quot;#fb6f92&quot;, size = 2) +
+
+
+  theme_classic() + labs(x= &quot;mRNA-protein correlation&quot;,
+                    y= &quot;Density&quot;,
+                    title = &quot;ALDH2&quot;) +
+theme(
+  axis.text = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;plain&quot;),
+  axis.title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;plain&quot;),
+  title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;bold&quot;)
+)
+
+ggsave(plot = ALDH2, filename = &quot;output/Publication/Figures/ALDH2-dist.png&quot;, height = 5, width =7, dpi=1200)</code></pre>
+<ul>
+<li>IDH2</li>
+</ul>
+<pre class="r"><code>idh2 = ranks_all %&gt;%
+  ggplot(aes(Correlation)) +
+   geom_density(data=ranks_all, color=&quot;lightgray&quot;, size = 1.5) +
+        geom_density(data=dplyr::filter(ccle, Protein == &quot;IDH2&quot;), color=&quot;#6e0b24&quot;, size = 1.5, lty =&quot;dotted&quot;) +
+          geom_density(data=dplyr::filter(cr_correlations, Gene == &quot;IDH2&quot;), color=&quot;#e3a3b3&quot;, size = 1.5, lty =&quot;dashed&quot;) +
+  geom_density(data=dplyr::filter(ranks_all, Gene == &quot;IDH2&quot;), color=&quot;#fb6f92&quot;, size = 2) +
+
+
+  theme_classic() + labs(x= &quot;mRNA-protein correlation&quot;,
+                    y= &quot;Density&quot;,
+                    title = &quot;IDH2&quot;) +
+  theme(legend.position = &quot;top&quot;,
+                          legend.title = element_blank(),
+        legend.spacing.y = unit(0, &quot;mm&quot;)) +
+theme(
+  axis.text = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;plain&quot;),
+  axis.title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;plain&quot;),
+  title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;bold&quot;)
+)
+
+ggsave(filename = &quot;output/Publication/Figures/IDH2_distribution.png&quot;, height =5, width =7, plot = idh2, dpi = 1200)</code></pre>
+<ul>
+<li>EGFR</li>
+</ul>
+<pre class="r"><code>egfr = ranks_all %&gt;%
+  ggplot(aes(Correlation)) +
+   geom_density(data=ranks_all, color=&quot;lightgray&quot;, size = 1) +
+        geom_density(data=dplyr::filter(cr_correlations, Gene == &quot;EGFR&quot;), color=&quot;#e3a3b3&quot;, size = 1.5, lty =&quot;dashed&quot;) +
+   geom_density(data=dplyr::filter(ccle, Protein == &quot;EGFR&quot;), color=&quot;#6e0b24&quot;, size = 1.5, lty =&quot;dotted&quot;) +
+  geom_density(data=dplyr::filter(ranks_all, Gene == &quot;EGFR&quot;), color=&quot;#fb6f92&quot;, size = 2) +
+
+
+  theme_classic() + labs(x= &quot;mRNA-protein correlation&quot;,
+                    y= &quot;Density&quot;,
+                    title = &quot;EGFR&quot;) +
+    theme(legend.position = &quot;top&quot;,
+                          legend.title = element_blank(),
+        legend.spacing.y = unit(0, &quot;mm&quot;)) +
+theme(
+  axis.text = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;plain&quot;),
+  axis.title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;plain&quot;),
+  title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;bold&quot;)
+)
+
+
+ggsave(filename = &quot;output/Publication/Figures/EGFR_distribution.png&quot;, height =5, width =7, plot = egfr, dpi = 1200)</code></pre>
+<ul>
+<li>CTNNB1</li>
+</ul>
+<pre class="r"><code>ctnnb1 = ranks_all %&gt;%
+  ggplot(aes(Correlation)) +
+   geom_density(data=ranks_all, color=&quot;darkgrey&quot;, size = 1) +
+      geom_density(data=dplyr::filter(cr_correlations, Gene == &quot;CTNNB1&quot;), color=&quot;#e3a3b3&quot;, size = 1.5, lty =&quot;dashed&quot;, alpha = 0.5) +
+   geom_density(data=dplyr::filter(ccle, Protein == &quot;CTNNB1&quot;), color=&quot;#6e0b24&quot;, size = 1.5, lty =&quot;dotted&quot;, alpha =0.5) +
+  geom_density(data=dplyr::filter(ranks_all, Gene == &quot;CTNNB1&quot;), color=&quot;#fb6f92&quot;, size = 2) +
+
+
+  theme_classic() + labs(x= &quot;mRNA-protein correlation&quot;,
+                    y= &quot;Density&quot;,
+                    title = &quot;CTNNB1&quot;) +
+theme(
+  axis.text = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;plain&quot;),
+  axis.title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;plain&quot;),
+  title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;bold&quot;)
+)
+
+
+ggsave(plot = ctnnb1, filename = &quot;output/Publication/Figures/CTNNB1-dist.png&quot;, height = 5, width =7, dpi=1200)</code></pre>
+<ul>
+<li>KMT2D</li>
+</ul>
+<pre class="r"><code>kmt2d  = ranks_all %&gt;%
+  ggplot(aes(Correlation)) +
+   geom_density(data=ranks_all, color=&quot;darkgrey&quot;, size = 1) +
+      geom_density(data=dplyr::filter(cr_correlations, Gene == &quot;KMT2D&quot;), color=&quot;#e3a3b3&quot;, size = 1.5, lty =&quot;dashed&quot;, alpha = 0.5) +
+   geom_density(data=dplyr::filter(ccle, Protein == &quot;KMT2D&quot;), color=&quot;#6e0b24&quot;, size = 1.5, lty =&quot;dotted&quot;, alpha =0.5) +
+  geom_density(data=dplyr::filter(ranks_all, Gene == &quot;KMT2D&quot;), color=&quot;#fb6f92&quot;, size = 2) +
+
+
+  theme_classic() + labs(x= &quot;mRNA-protein correlation&quot;,
+                    y= &quot;Density&quot;,
+                    title = &quot;KMT2D&quot;) +
+theme(
+  axis.text = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;plain&quot;),
+  axis.title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;plain&quot;),
+  title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;bold&quot;)
+)
+
+
+
+ggsave(plot = kmt2d, filename = &quot;output/Publication/Figures/KMT2D-dist.png&quot;, height = 5, width =7, dpi=1200)</code></pre>
+<pre class="r"><code>ggarrange(ALDH2,idh2 ,
+          egfr, ctnnb1,
+          kmt2d, ncol = 2, nrow = 3)</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-39-1.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>#ggsave(filename = &quot;output/Publication/Figures/Figure_3c.png&quot;, height =8, width =8, dpi = 1200)</code></pre>
+</div>
+<div id="figure-3d" class="section level2">
+<h2>Figure 3D</h2>
+<pre class="r"><code>correlation_data_tissue = read.csv(&quot;output/correlations-datasets/correlation-tissue-nontransformed.csv&quot;, row.names = 1)
+
+
+ctnn1_tissues = correlation_data_tissue %&gt;%
+  dplyr::filter(Gene == &quot;CTNNB1&quot;) %&gt;%
+  ggplot(aes(x= reorder(Tissue, Correlation), y = Correlation)) + geom_bar(stat= &quot;identity&quot;, fill= &quot;red&quot;) + geom_hline(yintercept =  0.103 , size = 0.7, lty = &quot;dashed&quot;, color = &quot;blue&quot;) +
+
+  coord_flip() +
+  theme_bw() +    ggtitle(&quot;CTNNB1&quot;) + theme(axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+            axis.text.y = element_text(size = 24, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=24, family = &quot;serif&quot;),
+         legend.box.background = element_rect(color = &quot;black&quot;),
+          legend.text = element_text(family = &quot;serif&quot;),
+          legend.title = element_text( family = &quot;serif&quot;),
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line( size=.1 ),
+              legend.position = &quot;none&quot;,
+        strip.text.y = element_text(
+        size = 10, face = &quot;bold.italic&quot;, family = &quot;serif&quot;
+        ),
+         strip.text.x = element_text(
+        size = 10, family = &quot;serif&quot;
+        )) + labs(x= &quot;&quot;, y=&quot;Spearman Correlation&quot;) +
+  annotate(&quot;text&quot;, x = 4, y = 0.16,
+  label = &quot;paste(italic(median), \&quot; = 0.10\&quot;)&quot;, parse = TRUE, color = &quot;blue&quot;, size = 7, angle = 270)
+
+ctnn1_tissues</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-40-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>#ggsave(filename = &quot;output/Publication/Figures/Fig_3F.png&quot;,height = 10, width = , plot =ctnn1_tissues, dpi = 1200)</code></pre>
+</div>
+<div id="figure-3d-1" class="section level2">
+<h2>Figure 3D</h2>
+<pre class="r"><code>file_dir = file.path(&quot;/Users/unawaz/Documents/2023/RNA-protein-correlationx/Data/&quot;)
+
+data = list()
+
+## Metadata
+data$sample_md = read.delim(&quot;~/Documents/2023/RNA-protein-correlationx/Data/e0022_diann_051021_sample_mapping_averaged.txt&quot;)
+data$sample_md_rep = read.table(file.path(file_dir, &quot;e0022_diann_051021_sample_mapping_replicates.txt&quot;), header=TRUE, sep = &quot;\t&quot;)
+
+
+data$prt_mtx =  read.delim(file.path(file_dir, &quot;e0022_diann_051021_working_matrix_averaged.txt&quot;),
+                           header = TRUE, fill = TRUE, check.names = FALSE)
+
+data$rna_mtx = read.delim(gzfile(file.path(file_dir, &quot;rnaseq_voom.csv.gz&quot;)), header = TRUE,
+                          fill = TRUE, sep = &quot;,&quot;,
+                          row.names = 1, check.names = FALSE)</code></pre>
+<pre class="r"><code>library(ggbeeswarm)
+
+rna_swarm_ctnnb1 =data$rna_mtx %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(&quot;CTNNB1&quot;) %&gt;%
+  scale() %&gt;%
+  as.data.frame() %&gt;%
+  mutate(Outlier = ifelse(CTNNB1 &gt; 3, &quot;Yes&quot;, &quot;No&quot;)) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;) %&gt;%
+  left_join(data$rna_mtx %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(&quot;RNA&quot; = &quot;CTNNB1&quot;) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;), by = &quot;SIDM&quot;) %&gt;%
+  ggplot(aes(y = RNA, x=&#39;&#39;, color = Outlier)) +
+  geom_beeswarm(cex=3, size=3) +
+   scale_color_manual(values = c(&quot;No&quot; = &quot;#8d99ae&quot;,
+                                &quot;Yes&quot; = &quot;#bc4749&quot;))  +
+  theme(legend.position = &quot;top&quot;) + theme_bw() +
+    theme(axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+            axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=20, family = &quot;serif&quot;),
+         legend.box.background = element_rect(color = &quot;black&quot;),
+          legend.text = element_text(family = &quot;serif&quot;, size=20),
+          legend.title = element_text( family = &quot;serif&quot;, size =20),
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line( size=.1 ),
+              legend.position = &quot;top&quot;,
+        strip.text.y = element_text(
+        size = 10, face = &quot;bold.italic&quot;, family = &quot;serif&quot;
+        ),
+         strip.text.x = element_text(
+        size = 10, family = &quot;serif&quot;
+        )) + ggtitle(&quot;CTNNB1&quot;) + xlab(&quot;Samples&quot;) + ylab(&quot;RNA expression&quot;) + labs(color = &quot;Outlier in RNA-seq&quot;)
+
+
+rna_swarm_ctnnb1</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-42-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Fig_3E_RNA.png&quot;,height = 6, width = 5, plot = rna_swarm_ctnnb1, dpi = 1200 )</code></pre>
+</div>
+<div id="figure-3e" class="section level2">
+<h2>Figure 3E</h2>
+<pre class="r"><code>ctnnb1= data$rna_mtx %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(&quot;CTNNB1&quot;) %&gt;%
+  scale() %&gt;%
+  as.data.frame() %&gt;%
+  mutate(Outlier = ifelse(abs(CTNNB1) &gt; 3, &quot;Yes&quot;, &quot;No&quot;)) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;) %&gt;%
+  left_join(data$rna_mtx %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(&quot;RNA&quot; = &quot;CTNNB1&quot;) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;), by = &quot;SIDM&quot;) %&gt;%
+  left_join(data$prt_mtx %&gt;%
+  mutate(Project_Identifier = gsub(&quot;;.*&quot;, &quot;&quot;, Project_Identifier)) %&gt;%
+  column_to_rownames(&quot;Project_Identifier&quot;) %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  rownames_to_column(&quot;Protein&quot;) %&gt;%
+  mutate(&quot;Protein_name&quot; = gsub(&quot;;.*&quot;, &quot;&quot;, Protein)) %&gt;%
+  mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein_name,
+                         keytype = &quot;UNIPROT&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
+  dplyr::select(-c(Protein_name, Protein)) %&gt;%
+  dplyr::filter(Gene == &quot;CTNNB1&quot;) %&gt;%
+  column_to_rownames(&quot;Gene&quot;) %&gt;%
+  melt() %&gt;% set_colnames(c(&quot;SIDM&quot;, &quot;Protein&quot;))) %&gt;%
+  ggplot(aes(x=RNA, y =Protein, color = Outlier)) + geom_point(size = 4) + theme_bw() + xlim(6,13) +
+   scale_color_manual(values = c(&quot;No&quot; = &quot;#8d99ae&quot;,
+                                &quot;Yes&quot; = &quot;#bc4749&quot;)) +
+    theme(axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+            axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=20, family = &quot;serif&quot;),
+         legend.box.background = element_rect(color = &quot;black&quot;),
+          legend.text = element_text(family = &quot;serif&quot;),
+          legend.title = element_text( family = &quot;serif&quot;),
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line( size=.1 ),
+              legend.position = &quot;none&quot;,
+        strip.text.y = element_text(
+        size = 10, face = &quot;bold.italic&quot;, family = &quot;serif&quot;
+        ),
+         strip.text.x = element_text(
+        size = 10, family = &quot;serif&quot;
+        )) + ggtitle(&quot;CTNNB1&quot;) + labs(x=&quot;RNA expression&quot;, y = &quot;Protein abundance&quot;)
+
+ctnnb1</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-43-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Fig_3E_upper.png&quot;,height = 5.5, width = 5, plot = ctnnb1, dpi = 1200 )
+
+
+ protein_swarm = data$rna_mtx %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(&quot;CTNNB1&quot;) %&gt;%
+  scale() %&gt;%
+  as.data.frame() %&gt;%
+  mutate(Outlier = ifelse(abs(CTNNB1) &gt; 3, &quot;Yes&quot;, &quot;No&quot;)) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;) %&gt;%
+  left_join(data$rna_mtx %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(&quot;RNA&quot; = &quot;CTNNB1&quot;) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;), by = &quot;SIDM&quot;) %&gt;%
+  left_join(data$prt_mtx %&gt;%
+  mutate(Project_Identifier = gsub(&quot;;.*&quot;, &quot;&quot;, Project_Identifier)) %&gt;%
+  column_to_rownames(&quot;Project_Identifier&quot;) %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  rownames_to_column(&quot;Protein&quot;) %&gt;%
+  mutate(&quot;Protein_name&quot; = gsub(&quot;;.*&quot;, &quot;&quot;, Protein)) %&gt;%
+  mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein_name,
+                         keytype = &quot;UNIPROT&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
+  dplyr::select(-c(Protein_name, Protein)) %&gt;%
+  dplyr::filter(Gene == &quot;CTNNB1&quot;) %&gt;%
+  column_to_rownames(&quot;Gene&quot;) %&gt;%
+  melt() %&gt;% set_colnames(c(&quot;SIDM&quot;, &quot;Protein&quot;))) %&gt;%
+  ggplot(aes(y = Protein, x=&#39;&#39;, color = Outlier)) +
+  geom_beeswarm(size = 3, cex=3) +
+scale_color_manual(values = c(&quot;No&quot; = &quot;#8d99ae&quot;,
+                                &quot;Yes&quot; = &quot;#bc4749&quot;))  + theme_bw() +
+    theme(axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+            axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=20, family = &quot;serif&quot;),
+         legend.box.background = element_rect(color = &quot;black&quot;),
+          legend.text = element_text(family = &quot;serif&quot;),
+          legend.title = element_text( family = &quot;serif&quot;),
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line( size=.1 ),
+              legend.position = &quot;none&quot;,
+        strip.text.y = element_text(
+        size = 10, face = &quot;bold.italic&quot;, family = &quot;serif&quot;
+        ),
+         strip.text.x = element_text(
+        size = 10, family = &quot;serif&quot;
+        )) + ylab(&quot;Protein abundance&quot;) + xlab(&quot;Samples&quot;)
+
+
+ protein_swarm</code></pre>
+<p><img src="figure/publication-figures.Rmd/unnamed-chunk-43-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Fig_3E_lower.png&quot;,height = 5.5, width = 5, plot =protein_swarm, dpi = 1200 )</code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.3.3 (2024-02-29)
+Platform: aarch64-apple-darwin20 (64-bit)
+Running under: macOS Sonoma 14.7.5
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: Australia/Sydney
+tzcode source: internal
+
+attached base packages:
+[1] grid      stats4    stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] ggbeeswarm_0.7.2          clusterProfiler_4.10.1   
+ [3] ggpubr_0.6.0              matrixStats_1.5.0        
+ [5] msigdbr_7.5.1             ragg_1.3.3               
+ [7] colorspace_2.1-1          ggtext_0.1.2             
+ [9] VennDiagram_1.7.3         futile.logger_1.4.3      
+[11] ggvenn_0.1.10             reshape2_1.4.4           
+[13] ggiraph_0.8.12            svglite_2.1.3            
+[15] EnsDb.Hsapiens.v86_2.99.0 ensembldb_2.26.0         
+[17] AnnotationFilter_1.26.0   GenomicFeatures_1.54.4   
+[19] GenomicRanges_1.54.1      GenomeInfoDb_1.38.8      
+[21] org.Hs.eg.db_3.18.0       AnnotationDbi_1.64.1     
+[23] IRanges_2.36.0            S4Vectors_0.40.2         
+[25] Biobase_2.62.0            BiocGenerics_0.48.1      
+[27] RWDataPlyr_0.6.4          readxl_1.4.3             
+[29] lubridate_1.9.4           forcats_1.0.0            
+[31] stringr_1.5.1             dplyr_1.1.4              
+[33] purrr_1.0.2               readr_2.1.5              
+[35] tidyr_1.3.1               tibble_3.2.1             
+[37] tidyverse_2.0.0           magrittr_2.0.3           
+[39] ggplot2_3.5.1             workflowr_1.7.1          
+
+loaded via a namespace (and not attached):
+  [1] fs_1.6.5                    ProtGenerics_1.34.0        
+  [3] bitops_1.0-9                enrichplot_1.22.0          
+  [5] HDO.db_0.99.1               httr_1.4.7                 
+  [7] RColorBrewer_1.1-3          tools_4.3.3                
+  [9] backports_1.5.0             utf8_1.2.4                 
+ [11] R6_2.5.1                    lazyeval_0.2.2             
+ [13] mgcv_1.9-1                  ggdist_3.3.2               
+ [15] withr_3.0.2                 prettyunits_1.2.0          
+ [17] gridExtra_2.3               cli_3.6.3                  
+ [19] textshaping_0.4.1           formatR_1.14               
+ [21] scatterpie_0.2.4            labeling_0.4.3             
+ [23] sass_0.4.9                  Rsamtools_2.18.0           
+ [25] systemfonts_1.1.0           yulab.utils_0.1.9          
+ [27] gson_0.1.0                  DOSE_3.28.2                
+ [29] rstudioapi_0.17.1           RSQLite_2.3.9              
+ [31] generics_0.1.3              gridGraphics_0.5-1         
+ [33] BiocIO_1.12.0               car_3.1-3                  
+ [35] distributional_0.5.0        GO.db_3.18.0               
+ [37] Matrix_1.6-5                abind_1.4-8                
+ [39] lifecycle_1.0.4             whisker_0.4.1              
+ [41] yaml_2.3.10                 carData_3.0-5              
+ [43] SummarizedExperiment_1.32.0 qvalue_2.34.0              
+ [45] SparseArray_1.2.4           BiocFileCache_2.10.2       
+ [47] blob_1.2.4                  promises_1.3.2             
+ [49] crayon_1.5.3                lattice_0.22-5             
+ [51] cowplot_1.1.3               KEGGREST_1.42.0            
+ [53] pillar_1.10.1               knitr_1.49                 
+ [55] fgsea_1.28.0                rjson_0.2.23               
+ [57] codetools_0.2-19            fastmatch_1.1-6            
+ [59] glue_1.8.0                  getPass_0.2-4              
+ [61] ggfun_0.1.8                 data.table_1.16.4          
+ [63] treeio_1.26.0               vctrs_0.6.5                
+ [65] png_0.1-8                   cellranger_1.1.0           
+ [67] gtable_0.3.6                cachem_1.1.0               
+ [69] xfun_0.50                   S4Arrays_1.2.1             
+ [71] tidygraph_1.3.1             pheatmap_1.0.12            
+ [73] nlme_3.1-164                ggtree_3.10.1              
+ [75] bit64_4.5.2                 progress_1.2.3             
+ [77] filelock_1.0.3              rprojroot_2.0.4            
+ [79] bslib_0.8.0                 vipor_0.4.7                
+ [81] DBI_1.2.3                   tidyselect_1.2.1           
+ [83] processx_3.8.5              bit_4.5.0.1                
+ [85] compiler_4.3.3              curl_6.1.0                 
+ [87] git2r_0.35.0                xml2_1.3.6                 
+ [89] DelayedArray_0.28.0         shadowtext_0.1.4           
+ [91] rtracklayer_1.62.0          scales_1.3.0               
+ [93] callr_3.7.6                 rappdirs_0.3.3             
+ [95] digest_0.6.37               rmarkdown_2.29             
+ [97] XVector_0.42.0              htmltools_0.5.8.1          
+ [99] pkgconfig_2.0.3             MatrixGenerics_1.14.0      
+[101] dbplyr_2.5.0                fastmap_1.2.0              
+[103] rlang_1.1.4                 htmlwidgets_1.6.4          
+[105] farver_2.1.2                jquerylib_0.1.4            
+[107] jsonlite_1.8.9              BiocParallel_1.36.0        
+[109] GOSemSim_2.28.1             RCurl_1.98-1.16            
+[111] Formula_1.2-5               GenomeInfoDbData_1.2.11    
+[113] ggplotify_0.1.2             patchwork_1.3.0            
+[115] munsell_0.5.1               Rcpp_1.0.14                
+[117] ape_5.8-1                   babelgene_22.9             
+[119] viridis_0.6.5               stringi_1.8.4              
+[121] ggraph_2.2.1                zlibbioc_1.48.2            
+[123] MASS_7.3-60.0.1             plyr_1.8.9                 
+[125] parallel_4.3.3              ggrepel_0.9.6              
+[127] Biostrings_2.70.3           graphlayouts_1.2.1         
+[129] splines_4.3.3               gridtext_0.1.5             
+[131] hms_1.1.3                   ps_1.8.1                   
+[133] igraph_2.1.2                uuid_1.2-1                 
+[135] ggsignif_0.6.4              biomaRt_2.58.2             
+[137] futile.options_1.0.1        XML_3.99-0.18              
+[139] evaluate_1.0.3              lambda.r_1.2.4             
+[141] tzdb_0.4.0                  tweenr_2.0.3               
+[143] httpuv_1.6.15               polyclip_1.10-7            
+[145] ggforce_0.4.2               broom_1.0.7                
+[147] restfulr_0.0.15             tidytree_0.4.6             
+[149] rstatix_0.7.2               later_1.4.1                
+[151] viridisLite_0.4.2           aplot_0.2.4                
+[153] beeswarm_0.4.0              memoise_2.0.1              
+[155] GenomicAlignments_1.38.2    timechange_0.3.0           
+[157] here_1.0.1                 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
