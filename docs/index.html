@@ -259,8 +259,20 @@ $(document).ready(function () {
   <a href="license.html">License</a>
 </li>
 <li class="dropdown-header">Analysis</li>
-<li>
-  <a href="publication-figures.html">Figures</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Figures
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="publication-figures.html">Main publication</a>
+    </li>
+    <li>
+      <a href="supplementary-publication-figures.html">Supplementary</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -303,7 +315,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-06-20
+<strong>Last updated:</strong> 2025-06-23
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -350,13 +362,13 @@ results.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong0462df4">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong51490cc">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 0462df4
+aria-hidden="true"></span> <strong>Repository version:</strong> 51490cc
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong0462df4"
+<div id="strongRepositoryversionstrong51490cc"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -365,7 +377,7 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 0462df4.
+The results in this page were generated with repository version 51490cc.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -387,7 +399,7 @@ Ignored files:
 
 Untracked files:
     Untracked:  analysis/CPTAC-data-correlations.Rmd
-    Untracked:  analysis/supplementary-publication-figures.Rmd
+    Untracked:  data/Datasets/
     Untracked:  data/OncoKB/
     Untracked:  data/Pathways/
     Untracked:  data/Ranks/
@@ -440,6 +452,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+339b94b
+</td>
+<td>
+Urwah Nawaz
+</td>
+<td>
+2025-06-20
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
