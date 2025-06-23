@@ -1,14 +1,23 @@
-name: "OnCorr"
+name: OnCorr
 output_dir: ../docs
 navbar:
-  title: "OnCorr"
+  title: OnCorr
   left:
   - text: Home
     href: index.html
-  - text: About
-    href: about.html
   - text: License
     href: license.html
+  - text: Analysis
+  - text: Figures
+    menu:
+    - text: Main publication
+      href: publication-figures.html
+    - text: Supplementary
+      href: supplementary-publication-figures.html
+  right:
+  - icon: fab fa-github
+    text: Source code
+    href: https://github.com/urwahnawaz/OnCorr
 output:
   workflowr::wflow_html:
     toc: yes
