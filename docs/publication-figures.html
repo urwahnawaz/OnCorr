@@ -38,6 +38,8 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -340,7 +342,9 @@ div.tocify {
 <li>
   <a href="license.html">License</a>
 </li>
-<li class="dropdown-header">Analysis</li>
+<li>
+  <a href="calculate_correlations.html">Analysis</a>
+</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Figures
@@ -358,7 +362,13 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/urwahnawaz/OnCorr">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -407,7 +417,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-06-23
+<strong>Last updated:</strong> 2025-06-24
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -538,13 +548,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong51490cc">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomurwahnawazOnCorrtreeddc48e4cf88b0af734aeff7a869bc2db32f054ddtargetblankddc48e4a">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 51490cc
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/urwahnawaz/OnCorr/tree/ddc48e4cf88b0af734aeff7a869bc2db32f054dd" target="_blank">ddc48e4</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong51490cc"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomurwahnawazOnCorrtreeddc48e4cf88b0af734aeff7a869bc2db32f054ddtargetblankddc48e4a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -553,7 +565,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 51490cc.
+The results in this page were generated with repository version
+<a href="https://github.com/urwahnawaz/OnCorr/tree/ddc48e4cf88b0af734aeff7a869bc2db32f054dd" target="_blank">ddc48e4</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -570,6 +583,7 @@ were generated:
 Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rproj.user/
+    Ignored:    analysis/calculate_correlations_cache/
     Ignored:    data/.DS_Store
     Ignored:    output/.DS_Store
 
@@ -579,12 +593,17 @@ Untracked files:
     Untracked:  data/OncoKB/
     Untracked:  data/Pathways/
     Untracked:  data/Ranks/
+    Untracked:  output/CPTAC-RNAseq-merged.csv
+    Untracked:  output/CPTAC-proteomics-merged.csv
+    Untracked:  output/CPTAC-sample-info-merged.csv
     Untracked:  output/Other/
     Untracked:  output/Publication/
     Untracked:  output/correlations-datasets/
 
 Unstaged changes:
+    Modified:   .gitignore
     Modified:   analysis/_site.yml
+    Modified:   analysis/calculate_correlations.Rmd
 
 </code></pre>
 <p>
@@ -634,7 +653,24 @@ Message
 html
 </td>
 <td>
-339b94b
+<a href="https://rawcdn.githack.com/urwahnawaz/OnCorr/debfbfb5684aae59bf0ca220b356ac9b084d9d77/docs/publication-figures.html" target="_blank">debfbfb</a>
+</td>
+<td>
+Urwah Nawaz
+</td>
+<td>
+2025-06-23
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/urwahnawaz/OnCorr/339b94b804910fb54366c6dce4f1bfe0648655df/docs/publication-figures.html" target="_blank">339b94b</a>
 </td>
 <td>
 Urwah Nawaz
@@ -651,7 +687,7 @@ Build site.
 html
 </td>
 <td>
-0462df4
+<a href="https://rawcdn.githack.com/urwahnawaz/OnCorr/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/publication-figures.html" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -668,7 +704,7 @@ Build site.
 Rmd
 </td>
 <td>
-9809e44
+<a href="https://github.com/urwahnawaz/OnCorr/blob/9809e44e06972534d354fe8e26ce11a267bd3f22/analysis/publication-figures.Rmd" target="_blank">9809e44</a>
 </td>
 <td>
 Urwah Nawaz
@@ -907,7 +943,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-7-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -1022,7 +1058,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-13-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -1187,7 +1223,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-16-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -1320,7 +1356,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-17-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -1405,7 +1441,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-20-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -1511,7 +1547,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-22-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -1631,7 +1667,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-23-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -1808,7 +1844,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-28-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -1892,7 +1928,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-29-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -2026,7 +2062,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-31-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -2195,7 +2231,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-39-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -2265,7 +2301,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-40-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -2361,7 +2397,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-42-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -2450,7 +2486,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-43-1.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
@@ -2540,7 +2576,7 @@ Date
 <tbody>
 <tr>
 <td>
-0462df4
+<a href="https://github.com/urwahnawaz/OnCorr/blob/0462df41c2a09e5ded2a36493174bfe6c2de2586/docs/figure/publication-figures.Rmd/unnamed-chunk-43-2.png" target="_blank">0462df4</a>
 </td>
 <td>
 Urwah Nawaz
