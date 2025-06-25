@@ -8,4 +8,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+Proteins are ultimately responsible for cellular phenotypes and targetted by most anticancer drugs. However, they are not typically measured in precision medicine programs. Here, we determined how informative mRNA is for guiding personalised treatments by correlating mRNA expression with protein abundance in matched samples across three large-scale pan-cancer datasets. 
+
+This notebook contains the code and analysis of mRNA-protein correlations in the ProCan-DepMapSanger, CPTAC and CCLE datasets. The findings are available in the following [preprint](https://www.biorxiv.org/content/10.1101/2025.06.12.659426v1).
+

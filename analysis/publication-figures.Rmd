@@ -1,5 +1,5 @@
 ---
-title: "publication-figures"
+title: "Main publication figures for Nawaz et al"
 author: "urwahnawaz"
 date: "2024-10-08"
 output:
@@ -20,9 +20,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Introduction 
+# Introduction 
 
-This notebook contains the figures that will be used for the mRNA protein correlation paper. In this instance we will be utilizing tissue specific cancer correlations.
+This notebook contains code used to generate main figures in [Nawaz et al (2025)](https://www.biorxiv.org/content/10.1101/2025.06.12.659426v1). The code used to generate the mRNA-protein correlation data used for these figures can be found in  `analysis/calculate_correlations.Rmd`, or in the Analysis option on the option bar in this notebook. Figures which utilise the raw protein or RNA expression matrices can be found in the relevant publicaitons. 
+
+
+## Import libraries and set-up
 
 ```{r}
 library(ggplot2)
@@ -47,11 +50,6 @@ library(matrixStats)
 library(ggpubr)
 ```
 
-
-```{r}
-file_dir = file.path("/Users/unawaz/Documents/2023/RNA-protein-correlationx/Data/")
-```
-
 ```{r functions}
 library(readxl)    
 read_excel_allsheets <- function(filename, tibble = FALSE) {
@@ -66,9 +64,6 @@ read_excel_allsheets <- function(filename, tibble = FALSE) {
 }
 ```
 
-```{r}
-sample_md = read.delim("~/Documents/2023/RNA-protein-correlationx/Data/e0022_diann_051021_sample_mapping_averaged.txt")
-```
 
 ```{r}
 txdf = ensembldb::transcripts(EnsDb.Hsapiens.v86, return.type="DataFrame")
@@ -123,18 +118,22 @@ PALETTE_TTYPE = c(
 ```
 
 
-```{r}
-
-correlation_data_tissue = read.csv("output/correlations-datasets/correlation-tissue-nontransformed.csv", row.names = 1) 
-
-```
-
 
 # Figure 1 
+mRNA-protein correlations across tissues and cancer related pathways. 
 
 ## Figure 1A
 
-```{r fig.height=10, fig.width=15, fig.cap="Distribution of mRNA-protein correlations across tissues in the ProCan-DepMapSanger dataset."}
+```{r}
+correlation_data_tissue = read.csv("output/correlations-datasets/correlation-tissue-nontransformed.csv", row.names = 1) 
+```
+
+
+```{r}
+sample_md = read.delim("~/Documents/2023/RNA-protein-correlationx/Data/e0022_diann_051021_sample_mapping_averaged.txt")
+```
+
+```{r fig.height=10, fig.width=20, fig.cap="Distribution of mRNA-protein correlations across tissues in the ProCan-DepMapSanger dataset. Only tissues with at least 10 cell lines are shown."}
 matrix_tissue = pivot_wider(correlation_data_tissue, names_from  = Tissue, values_from = Correlation)  %>% 
   as.data.frame() %>% 
   column_to_rownames("Gene") 
@@ -237,13 +236,13 @@ tissue_dists= correlation_data_tissue %>%
 
 tissue_dists
 
-# ggsave(filename = "output/Publication/Figures/Fig_1A.png", height =10, width =25, plot = tissue_dists, dpi = 1200)
+ ggsave(filename = "output/Publication/Figures/Fig_1A.png", height =10, width =25, plot = tissue_dists, dpi = 1200)
 
 ```
 
 
 
-## Figure 1B
+## Figure 1B and Figure 1C
 
 ```{r}
 cptac = read.csv("output/correlations-datasets/correlation-overall-cptac-linkedomics.csv", header=TRUE)
@@ -297,7 +296,7 @@ overall_correlations_cell_lines = correlation_overall  %>%
 
 ```
 
-```{r fig.height=6, fig.width=10, fig.cap="Histogram of mRNA-protein correlations across each cohort for ProCan-DepMapSanger, CPTAC and CCLE with medians indicated"}
+```{r fig.height=4,fig.width=10, fig.cap="Histogram of mRNA-protein correlations across each cohort for ProCan-DepMapSanger, CPTAC and CCLE with medians indicated"}
 overall_correlations_ccle = ccle   %>%
   ggplot(aes(x = Correlation)) + 
   geom_histogram(color="white", alpha=1, fill = "#ccd5ae") + theme_bw() +
@@ -333,12 +332,12 @@ ggarrange(overall_correlations_cell_lines,overall_correlations_cptac,overall_cor
 ```
 
 ```{r}
-# ggsave(filename = "output/Publication/Figures/Fig_1B.png", height =4, width =4, plot = overall_correlations_cell_lines, dpi = 1200)
-# 
-# 
-# ggsave(filename = "output/Publication/Figures/Fig_1C_left.png", height =4, width =4, plot = overall_correlations_cptac, dpi = 1200)
-# 
-# ggsave(filename = "output/Publication/Figures/Fig_1C_right.png", height =4, width =4, plot = overall_correlations_ccle, dpi = 1200)
+ ggsave(filename = "output/Publication/Figures/Fig_1B.png", height =4, width =4, plot = overall_correlations_cell_lines, dpi = 1200)
+ 
+ 
+ggsave(filename = "output/Publication/Figures/Fig_1C_left.png", height =4, width =4, plot = overall_correlations_cptac, dpi = 1200)
+ 
+ggsave(filename = "output/Publication/Figures/Fig_1C_right.png", height =4, width =4, plot = overall_correlations_ccle, dpi = 1200)
 ```
 
 ## Figure 1D
@@ -404,7 +403,7 @@ correlation_per_pathway = lapply(names(pathway_genes), function(x) {
 })
 ```
 
-```{r fig.height=8, fig.width=15, fig.cap="Boxplot showing median mRNA-protein correlations by tissue in the ProCan-DepMapSanger dataset for key biological and selected cancer-related pathways"}
+```{r fig.height=11, fig.width=11, fig.cap="Boxplot showing median mRNA-protein correlations by tissue in the ProCan-DepMapSanger dataset for key biological and selected cancer-related pathways"}
 plot = do.call(rbind, correlation_per_pathway) %>%
   dplyr::filter(Pathway %in% c("PI3K", "NOTCH", "WNT", "RTK RAS", "TGF-Beta",
                                "HIPPO")) %>%
@@ -463,28 +462,12 @@ plot
 ggsave(filename = "output/Publication/Figures/Fig_1D.png", height =11, width =11, plot = plot, dpi = 1200)
 
 
-  # pathways_procanDepMap = do.call(rbind, correlation_per_pathway) %>%
-  # dplyr::filter(Pathway %in% c("PI3K", "NOTCH", "WNT", "RTK RAS", "TGF-Beta",
-  #                              "HIPPO")) %>%
-  # rbind(correlation_per_kegg) %>%
-  # mutate(Pathway = ifelse(Pathway == "Oxidative phosphorylation", "OXPHOS", Pathway)) %>%
-  # melt() %>%
-  # mutate(Pathway = factor(Pathway, levels =
-  #                           c("Ribosome", "OXPHOS",
-  #                             "Proteasome", "Spliceosome", "PI3K",
-  #                             "NOTCH", "Cell cycle", "Apoptosis",
-  #                             "WNT", "RTK RAS", "TGF-Beta", "HIPPO",
-  #                             "Focal adhesion"))) %>%
-  # mutate(Dataset= c("ProCan-DepMapSanger"))
-
-#write.csv(pathways_procanDepMap, file = "output/ProCan-DepMapSanger-Pathways.csv")
-
 ```
 
-## Fig 1E 
+## Figure 1E 
 
 
-```{r}
+```{r fig.height=8, fig.width=5, fig.cap="Correlation of median mRNA-protein correlations per tissue for CPTAC with ProCan-DepMapSanger (top), and with CCLE (bottom), for pathways in Figure 1d"}
 pathways_across_datasets = read.table("output/Other/Pathways_median_all_datasets.tsv", sep = "\t", header =TRUE)
 
 
@@ -527,8 +510,8 @@ pathways_cor_1 = median_pathway %>%
         )) 
  
 
-# 
-# ggsave(filename = "output/Publication/Figures/Fig_1E_upper.png",height = 5, width = 8, plot =pathways_cor_1, dpi = 1200 )
+ 
+ggsave(filename = "output/Publication/Figures/Fig_1E_upper.png",height = 5, width = 8, plot =pathways_cor_1, dpi = 1200 )
 
 
 pathways_cor_2 = median_pathway %>% 
@@ -557,13 +540,18 @@ pathways_cor_2 = median_pathway %>%
         )) 
  
 
+ ggsave(filename = "output/Publication/Figures/Fig_1E_lower.png",height = 5, width = 8, plot =pathways_cor_2, dpi = 1200 )
 
-pathways_cor_2
-# ggsave(filename = "output/Publication/Figures/Fig_1E_lower.png",height = 5, width = 8, plot =pathways_cor_2, dpi = 1200 )
+ 
+ ggarrange(pathways_cor_1, pathways_cor_2, nrow=2)
+
 
 ```
 
 # Figure 2 
+
+mRNA-protein correlations of cancer driver genes from OncoKB.
+
 ## Figure 2A
 
 
@@ -572,7 +560,6 @@ drivers = read.delim(here::here("data/OncoKb/cancerGeneList.tsv"), fill=TRUE, ch
 ```
 
 ```{r}
-file_dir = file.path("/Users/unawaz/Documents/2023/RNA-protein-correlationx/Data/")
 correlation_data_tissue = read.csv("output/correlations-datasets/correlation-tissue-nontransformed.csv", row.names = 1) 
 matrix_tissue = pivot_wider(correlation_data_tissue, names_from  = Tissue, values_from = Correlation)  %>% 
   as.data.frame() %>% 
@@ -601,7 +588,7 @@ matrix_drivers %<>% as.matrix()
 
 
 
-```{r fig.height=6, fig.width=6, fig.cap=" Heatmap of mRNA-protein correlations across tissue types for cancer driver genes from OncoKB"}
+```{r fig.height=6, fig.width=6, fig.cap=" Heatmap of mRNA-protein correlations across tissue types for cancer driver genes from OncoKB. Clusters identidied by hierachical clustering using Euclidean distance."}
 heatmap_viz= matrix_drivers %>%
   #  drop_na() %>%
 
@@ -612,8 +599,8 @@ pheatmap::pheatmap( border_color = "white",
          na_col = "darkgrey", cutree_rows    = 5, show_rownames = FALSE, fontsize_col=12)
 
 
-#ggsave(plot = heatmap_viz, filename = "output/Publication/Figures/Fig_2A.png",
- #      height = 8, width = 8, dpi = 1200)
+ggsave(plot = heatmap_viz, filename = "output/Publication/Figures/Fig_2A.png",
+      height = 8, width = 8, dpi = 1200)
 
 
 ```
@@ -629,7 +616,8 @@ matrix_tissue = pivot_wider(correlation_data_tissue, names_from  = Tissue, value
   dplyr::select(-Protein)
 ```
 
-```{r}
+```{r fig.height= 5, fig.width=5, fig.cap="Violin plot showing mRNA-protein correlations of cancer driver and non-driver genes with median and standard deviation indicated. **** indicates P < 0.0001 by unpaired Student’s t-test."}
+
 drivers = read.delim(here::here("data/OncoKb/cancerGeneList.tsv"), fill=TRUE, check.names = FALSE)
 tmp=rowSums(is.na(matrix_tissue ) )
 
@@ -690,36 +678,13 @@ drivers_v_nondrivers <- correlation_overall %>%
 
 drivers_v_nondrivers
 ggsave(filename = "output/Publication/Figures/Fig_2B.png",height = 6.5, width = 6, plot =drivers_v_nondrivers, dpi = 1200 )
-# 
-# library(ggsignif)
-# library(superb)
-# correlation_data_tissue %>%
-#   dplyr::filter(Gene %in% rownames(matrix_filtered)) %>%
-#     mutate(Drivers = ifelse(Gene %in% drivers$`Hugo Symbol`, "Cancer Driver", "Non-Driver")) %>% with(table(.$Drivers))
-#   mutate(Drivers = factor(Drivers, levels = c("Non-Driver", "Cancer Driver"))) %>%
-#   ggplot(aes(x=Drivers, y = Correlation)) + geom_boxplot() + ylab("")  +
-#    showSignificance( c(1,2), 7.5, -0.05, "**")
-# 
-# drivers= correlation_data_tissue %>%
-#   dplyr::filter(Gene %in% rownames(matrix_filtered)) %>%
-#     mutate(Drivers = ifelse(Gene %in% drivers$`Hugo Symbol`, "Cancer Driver", "Non-Driver")) %>%
-#   dplyr::filter(Drivers == "Cancer Driver")
-# 
-# ndrivers= correlation_data_tissue %>%
-#   dplyr::filter(Gene %in% rownames(matrix_filtered)) %>%
-#     mutate(Drivers = ifelse(Gene %in% drivers$`Hugo Symbol`, "Cancer Driver", "Non-Driver")) %>%
-#   dplyr::filter(Drivers == "Non-Driver")
-# 
-# 
-# t_test_result <- t.test(ndrivers$Correlation, drivers$Correlation, var.equal = TRUE)
-
 ```
 
 
 ## Figure 2C
 
 
-```{r}
+```{r fig.height=10, fig.width=7, fig.cap="Distribution of mRNA-protein correlations for genes in each cluster identified in heatmap in Figure 2A"}
 matrix <- matrix_drivers[c(heatmap_viz$tree_row[["order"]]),heatmap_viz$tree_col[["order"]]]
 clusters= cutree(heatmap_viz$tree_row, k=5)[heatmap_viz$tree_row[["order"]]] %>%
   as.data.frame() %>%
@@ -734,15 +699,15 @@ clusters$clusters[clusters$Cluster == 4] <- 3
 clusters$clusters[clusters$Cluster == 3] <- 4
 clusters$clusters[clusters$Cluster == 2] <- 5
 
-
-clusters %>%
-   as.data.frame() %>%
-   rownames_to_column("Gene") %>%
-   inner_join(matrix_drivers %>% melt() %>%
-                dplyr::rename("Gene" = "Var1",  "Correlation" = "value" ), by = "Gene") %>%
-   group_by(Cluster) %>%
-   mutate(median= median(Correlation, na.rm =TRUE)) %>%
-   distinct("median", .keep_all = T)
+# 
+# clusters %>%
+#    as.data.frame() %>%
+#    rownames_to_column("Gene") %>%
+#    inner_join(matrix_drivers %>% melt() %>%
+#                 dplyr::rename("Gene" = "Var1",  "Correlation" = "value" ), by = "Gene") %>%
+#    group_by(Cluster) %>%
+#    mutate(median= median(Correlation, na.rm =TRUE)) %>%
+#    distinct("median", .keep_all = T)
 
 
 clusters_drivers = clusters %>%
@@ -781,6 +746,10 @@ write.csv(cluster_full, "output/Publication/Data/clusters.csv")
 ```
 
 ### Gene ontologies
+
+GO terms for each cluster were identified using the clusterProfiler and saved in a CSV. The top terms were combined with the distribution plot in Adobe Illustrator.
+
+
 ```{r}
 universe = correlation_data_tissue$Protein %>%
   as.data.frame() %>%
@@ -826,37 +795,35 @@ gene_ontology_top = lapply(gene_ontology, function(x){
   return(ont)
 })
 
-#library(openxlsx)
-#write.xlsx(gene_ontology_top, file = "output/Publication/Data/Gene-ontology-Figure2b.xlsx")
+library(openxlsx)
+write.xlsx(gene_ontology_top, file = "output/Publication/Data/Gene-ontology-Figure2b.xlsx")
 ```
 
 ```{r}
-# library(viridis)
-# gene_ontology_top$cluster1 %>%
-#   ggplot(aes(y=Description, x =-log10(p.adjust),
-#              size = Count, color=-log10(p.adjust))) + geom_point() +
-#   theme_bw() +  scale_color_viridis(option = "F") +
-#   theme(axis.text = element_text(family="serif", size=10, color = "black")) +
-#   labs(y="",
-#        title = "Cluster 1")
-# 
-# gene_ontology_top$cluster2 %>%
-#   ggplot(aes(y=Description, x =-log10(p.adjust),
-#              size = Count, color=-log10(p.adjust))) + geom_point() +
-#   theme_bw() +  scale_color_viridis(option = "F") +
-#   theme(axis.text = element_text(family="serif", size=10, color = "black")) +
-#   labs(y="",
-#        title = "Cluster 2")
-# 
-# gene_ontology_top$cluster3 %>%
-#   ggplot(aes(y=Description, x =-log10(p.adjust),
-#              size = Count, color=-log10(p.adjust))) + geom_point() +
-#   theme_bw() +  scale_color_viridis(option = "F") +
-#   theme(axis.text = element_text(family="serif", size=10, color = "black")) +
-#   labs(y="",
-#        title = "Cluster 3")
-
+gene_ontology_top$cluster1 %>% 
+  DT::datatable(caption = "Gene ontology for Cluster 1")
 ```
+
+```{r}
+gene_ontology_top$cluster2 %>% 
+  DT::datatable(caption = "Gene ontology for Cluster 2")
+```
+
+```{r}
+gene_ontology_top$cluster3 %>% 
+  DT::datatable(caption = "Gene ontology for Cluster 3")
+```
+
+```{r}
+gene_ontology_top$cluster4 %>% 
+  DT::datatable(caption = "Gene ontology for Cluster 4")
+```
+
+```{r}
+gene_ontology_top$cluster5 %>% 
+  DT::datatable(caption = "Gene ontology for Cluster 5")
+```
+
 
 ```{r}
 
@@ -867,15 +834,17 @@ cluster_full = clusters %>%
                dplyr::rename("Gene" = "Var1",  "Correlation" = "value" ), by = "Gene") %>%
   dplyr::select(-Cluster)
 
-#write.csv(cluster_full, "output/Publication/Data/clusters.csv")
+write.csv(cluster_full, "output/Publication/Data/clusters.csv")
 ```
 
 
 # Figure 3 
+
+Integration of protein reproducibility ranks and gene-specific mRNA-protein correlations. Protein reproducibility ranks were retrieved from [Upadhya et al (2022)](https://www.cell.com/cell-reports-methods/fulltext/S2667-2375(22)00170-9?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS2667237522001709%3Fshowall%3Dtrue). 
 ## Figure 3A
 
 
-```{r fig.height=6, fig.width=6}
+```{r}
 correlation_overall= read.csv("output/correlations-datasets/correlation-all-nontransformed.csv",
                             header=TRUE, row.names = 1) %>%
   drop_na()
@@ -922,10 +891,6 @@ ranks_plot = correlation_overall %>%
               legend.position = "top") +  ggtitle("ProCan-DepMapSanger")
 
 
-ranks_plot
-
-
-
 correlation_overall %>%
   dplyr::rename("Gene" = "Protein") %>%
   inner_join(ranks, by = "Gene") %>%
@@ -967,11 +932,16 @@ correlation_ranks = correlation_overall %>%
         size = 16, family = "serif"
         ))
 
-correlation_ranks
+
+
 
 ggsave(filename = "output/Publication/Figures/Fig_3A_lower.png", height =3.5, width =7, plot = correlation_ranks, dpi = 1200)
 ```
 
+
+```{r fig.height=4, fig.width=4, fig.cap="Association between aggregated protein reproducibility ranks from Upadhya et al 22 and mRNA-protein correlations in the ProCan-DepMapSanger dataset."}
+ggarrange(ranks_plot, correlation_ranks, nrow = 2)
+```
 
 ## Figure 3B
 
@@ -984,7 +954,7 @@ dplyr::rename("Gene"= "Protein") %>%
   inner_join(ranks, by = "Gene")
 ```
 
-```{r}
+```{r fig.height=6, fig.width=6, fig.cap=" Scatter plot of mRNA-protein correlation against aggregated protein reproducibility rank, with cancer drivers indicated by triangle data points."}
 library(ggpubr)
 drivers_of_interest_1 = c("CTNNB1", "EGFR","IDH2","RAC2","LCP1","ALDH2", "CPS1", "KMT2D", "DPYD")
 drivers_of_interest = c("CTNNB1", "EGFR","IDH2","ALDH2","KMT2D")
@@ -1227,11 +1197,10 @@ ggsave(plot = kmt2d, filename = "output/Publication/Figures/KMT2D-dist.png", hei
 
 
 
-```{r fig.height=15, fig.width=10}
+```{r fig.height=15, fig.width=10, fig.cap="For each gene, plots show the distribution of mRNA-protein correlations across tissues in the ProCan-DepMapSanger (pink solid line), Clinical Proteomic Tumor Analysis Consortium (CPTAC; light dashed line) and Cancer Cell Line Encyclopedia (CCLE; dark dashed line) datasets. Background (grey solid line) indicates the median mRNA-protein correlation from all genes in the ProCan-DepMapSanger dataset." }
 ggarrange(ALDH2,idh2 ,
           egfr, ctnnb1,
           kmt2d, ncol = 2, nrow = 3)
-#ggsave(filename = "output/Publication/Figures/Figure_3c.png", height =8, width =8, dpi = 1200)
 ```
 
 
@@ -1239,7 +1208,7 @@ ggarrange(ALDH2,idh2 ,
 ## Figure 3D
 
 
-```{r}
+```{r fig.height=10, fig.width=5, fig.cap="mRNA-protein correlation of CTNNB1 for each tissue type. "}
 correlation_data_tissue = read.csv("output/correlations-datasets/correlation-tissue-nontransformed.csv", row.names = 1)
 
 
@@ -1274,7 +1243,7 @@ ctnn1_tissues
 
 
 
-## Figure 3D
+## Figure 3E
 
 
 ```{r}
@@ -1296,7 +1265,7 @@ data$rna_mtx = read.delim(gzfile(file.path(file_dir, "rnaseq_voom.csv.gz")), hea
 ```
 
 
-```{r}
+```{r fig.height=6, fig.width=6, fig.cap= "Distribution of CTNNB1 mRNA expression across samples from the ProCan-DepMapSanger dataset, with outliers (> 3 standard deviations above the mean) indicated"}
 library(ggbeeswarm)
 
 rna_swarm_ctnnb1 =data$rna_mtx %>%
@@ -1344,7 +1313,6 @@ ggsave(filename = "output/Publication/Figures/Fig_3E_RNA.png",height = 6, width 
 ## Figure 3E
 
 ```{r}
-
 ctnnb1= data$rna_mtx %>%
   t() %>%
   as.data.frame() %>%
@@ -1391,7 +1359,6 @@ ctnnb1= data$rna_mtx %>%
         size = 10, family = "serif"
         )) + ggtitle("CTNNB1") + labs(x="RNA expression", y = "Protein abundance")
 
-ctnnb1
 ggsave(filename = "output/Publication/Figures/Fig_3E_upper.png",height = 5.5, width = 5, plot = ctnnb1, dpi = 1200 )
 
 
@@ -1443,11 +1410,13 @@ scale_color_manual(values = c("No" = "#8d99ae",
         )) + ylab("Protein abundance") + xlab("Samples")
 
 
- protein_swarm
-
 ggsave(filename = "output/Publication/Figures/Fig_3E_lower.png",height = 5.5, width = 5, plot =protein_swarm, dpi = 1200 )
 ```
 
+
+```{r fig.height=8, fig.width=6, fig.cap="Scatterplot showing mRNA expression and protein abundance for CTNNB1 (upper) and distribution of CTNNB1 protein abundance (lower) across samples in the ProCan-DepMapSanger dataset."}
+ggarrange(ctnnb1, protein_swarm, nrow = 2)
+```
 
 
 
