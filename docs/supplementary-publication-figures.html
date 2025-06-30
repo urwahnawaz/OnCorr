@@ -38,6 +38,8 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -338,9 +340,8 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="license.html">License</a>
+  <a href="calculate_correlations.html">Analysis</a>
 </li>
-<li class="dropdown-header">Analysis</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Figures
@@ -358,7 +359,13 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/urwahnawaz/OnCorr">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -407,7 +414,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-06-23
+<strong>Last updated:</strong> 2025-06-30
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -538,13 +545,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong51490cc">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomurwahnawazOnCorrtreef0b34f7c08d8397fa6684e1c4a9d506534bea122targetblankf0b34f7a">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 51490cc
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/urwahnawaz/OnCorr/tree/f0b34f7c08d8397fa6684e1c4a9d506534bea122" target="_blank">f0b34f7</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong51490cc"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomurwahnawazOnCorrtreef0b34f7c08d8397fa6684e1c4a9d506534bea122targetblankf0b34f7a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -553,7 +562,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 51490cc.
+The results in this page were generated with repository version
+<a href="https://github.com/urwahnawaz/OnCorr/tree/f0b34f7c08d8397fa6684e1c4a9d506534bea122" target="_blank">f0b34f7</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -569,7 +579,9 @@ were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/calculate_correlations_cache/
     Ignored:    data/.DS_Store
     Ignored:    output/.DS_Store
 
@@ -579,12 +591,17 @@ Untracked files:
     Untracked:  data/OncoKB/
     Untracked:  data/Pathways/
     Untracked:  data/Ranks/
+    Untracked:  output/CPTAC-RNAseq-merged.csv
+    Untracked:  output/CPTAC-proteomics-merged.csv
+    Untracked:  output/CPTAC-sample-info-merged.csv
     Untracked:  output/Other/
     Untracked:  output/Publication/
     Untracked:  output/correlations-datasets/
 
 Unstaged changes:
+    Modified:   .gitignore
     Modified:   analysis/_site.yml
+    Modified:   analysis/calculate_correlations.Rmd
 
 </code></pre>
 <p>
@@ -635,7 +652,41 @@ Message
 Rmd
 </td>
 <td>
-51490cc
+<a href="https://github.com/urwahnawaz/OnCorr/blob/f0b34f7c08d8397fa6684e1c4a9d506534bea122/analysis/supplementary-publication-figures.Rmd" target="_blank">f0b34f7</a>
+</td>
+<td>
+Urwah Nawaz
+</td>
+<td>
+2025-06-30
+</td>
+<td>
+wflow_publish(c("analysis/supplementary-publication-figures.Rmd",
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/urwahnawaz/OnCorr/debfbfb5684aae59bf0ca220b356ac9b084d9d77/docs/supplementary-publication-figures.html" target="_blank">debfbfb</a>
+</td>
+<td>
+Urwah Nawaz
+</td>
+<td>
+2025-06-23
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/urwahnawaz/OnCorr/blob/51490cccf7a74416590955c5f0bc5cde94f21960/analysis/supplementary-publication-figures.Rmd" target="_blank">51490cc</a>
 </td>
 <td>
 Urwah Nawaz
@@ -723,12 +774,13 @@ read_excel_allsheets &lt;- function(filename, tibble = FALSE) {
 </div>
 <div id="supplementary-figure-1" class="section level1">
 <h1>Supplementary Figure 1</h1>
-<div id="supp-fig-1a" class="section level2">
-<h2>Supp Fig 1a</h2>
+<p>Overall correlations across tissues and pathways.</p>
+<div id="supp-figure-1a" class="section level2">
+<h2>Supp Figure 1a</h2>
 <pre class="r"><code>cr_correlations &lt;- read.csv(&quot;output/correlations-datasets/correlation-tissue-cptac-linkedomics.csv&quot;, row.names = 1)
 
 
-cptac_md = read.csv(&quot;output/correlations-datasets/CPTAC-sample-info-merged.csv&quot;, header=TRUE)
+cptac_md = read.csv(&quot;output/correlations-datasets/CPTAC-raw/CPTAC-sample-info-merged.csv&quot;, header=TRUE)
 medians_tissue_cptac = aggregate(Correlation ~ Tissue, data = cr_correlations, FUN = median) %&gt;% 
   as.data.frame() %&gt;%
   arrange(Correlation)</code></pre>
@@ -785,16 +837,56 @@ medians_tissue_cptac = aggregate(Correlation ~ Tissue, data = cr_correlations, F
                                  size=33), plot.title = element_text(size=30)) + ggtitle(&quot;Clinical Proteomic Tumor Analysis Consortium (CPTAC)&quot;)
 
 tissue_dists</code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>#ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_1A.png&quot;,height =10, width =25, plot = tissue_dists, dpi = 1200)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-5-1.png" alt="Distribution of mRNA-protein correlations across tissues in the CPTAC dataset. Only tissues with at least 10 cell lines are shown." width="1920" />
+<p class="caption">
+Distribution of mRNA-protein correlations across tissues in the CPTAC
+dataset. Only tissues with at least 10 cell lines are shown.
+</p>
 </div>
-<div id="supp-fig-1b" class="section level2">
-<h2>Supp Fig 1b</h2>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
+Past versions of unnamed-chunk-5-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-5-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/urwahnawaz/OnCorr/blob/debfbfb5684aae59bf0ca220b356ac9b084d9d77/docs/figure/supplementary-publication-figures.Rmd/unnamed-chunk-5-1.png" target="_blank">debfbfb</a>
+</td>
+<td>
+Urwah Nawaz
+</td>
+<td>
+2025-06-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_1A.png&quot;,height =10, width =25, plot = tissue_dists, dpi = 1200)</code></pre>
+</div>
+<div id="supp-figure-1b" class="section level2">
+<h2>Supp Figure 1b</h2>
 <pre class="r"><code>sample_md_CCLE = read.csv(&quot;/Users/unawaz/Documents/2023/RNA-protein-correlationx/Data/CCLE/sample_info.csv&quot;, header=TRUE,
                                check.names = FALSE)</code></pre>
-</div>
-<div id="fix-metadata-for-tissues" class="section level2">
-<h2>Fix metadata for tissues</h2>
 <pre class="r"><code>ccle_tissue_annot = read_excel(&quot;data/Datasets/CCLE/CCLE_tissue_names.xlsx&quot;) %&gt;% 
   as.data.frame()</code></pre>
 <pre class="r"><code>sample_md_CCLE %&lt;&gt;% 
@@ -865,11 +957,54 @@ tissue_dists_ccle = ccle %&gt;%
                                  size=33),  plot.title = element_text(size=30)) +  ggtitle(&quot;Cancer Cell Lines Encylopedia (CCLE)&quot;)
 
 tissue_dists_ccle</code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>#ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_1B.png&quot;, height =10, width =20, plot = tissue_dists_ccle, dpi = 1200)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-9-1.png" alt="Distribution of mRNA-protein correlations across tissues in the CCLE dataset. Only tissues with at least 10 cell lines are shown." width="1920" />
+<p class="caption">
+Distribution of mRNA-protein correlations across tissues in the CCLE
+dataset. Only tissues with at least 10 cell lines are shown.
+</p>
 </div>
-<div id="supp-fig-1c" class="section level2">
-<h2>Supp Fig 1c</h2>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/urwahnawaz/OnCorr/blob/debfbfb5684aae59bf0ca220b356ac9b084d9d77/docs/figure/supplementary-publication-figures.Rmd/unnamed-chunk-9-1.png" target="_blank">debfbfb</a>
+</td>
+<td>
+Urwah Nawaz
+</td>
+<td>
+2025-06-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_1B.png&quot;, height =10, width =20, plot = tissue_dists_ccle, dpi = 1200)</code></pre>
+</div>
+<div id="supp-figure-1c" class="section level2">
+<h2>Supp Figure 1c</h2>
 <pre class="r"><code>library(patchwork)
 kegg_pathways = msigdbr(species=&quot;human&quot;, category = &quot;C2&quot;, subcategory = &quot;CP:KEGG&quot;) %&gt;%
   as.data.frame() %&gt;%
@@ -924,45 +1059,6 @@ correlation_per_pathway = lapply(names(pathway_genes), function(x) {
   return(pathway_medians)
 
 })</code></pre>
-<pre class="r"><code>plot_ccle = do.call(rbind, correlation_per_pathway) %&gt;%
-  dplyr::filter(Pathway %in% c(&quot;PI3K&quot;, &quot;NOTCH&quot;, &quot;WNT&quot;, &quot;RTK RAS&quot;, &quot;TGF-Beta&quot;,
-                               &quot;HIPPO&quot;)) %&gt;%
-  rbind(correlation_per_kegg) %&gt;%
-  mutate(Pathway = ifelse(Pathway == &quot;Oxidative phosphorylation&quot;, &quot;OXPHOS&quot;, Pathway)) %&gt;%
-  dplyr::rename(Lung = Lubg) %&gt;%
-  melt() %&gt;%
-  mutate(Pathway = factor(Pathway, levels = 
-                            c(&quot;Ribosome&quot;, &quot;OXPHOS&quot;,
-                              &quot;Proteasome&quot;, &quot;Spliceosome&quot;, &quot;PI3K&quot;, 
-                              &quot;NOTCH&quot;, &quot;Cell cycle&quot;, &quot;Apoptosis&quot;, 
-                              &quot;WNT&quot;, &quot;RTK RAS&quot;, &quot;TGF-Beta&quot;, &quot;HIPPO&quot;, 
-                              &quot;Focal adhesion&quot;))) %&gt;%
-
-  ggplot(aes(x=Pathway, y=value)) + geom_boxplot() +
-  theme_bw() +   theme_bw() +  #geom_jitter(aes(color = variable), size=4, shape = 1, stroke = 1.5) +
-  geom_jitter(
-    aes(color = variable,
-        #color = after_scale(darken(color, .1, space = &quot;HLS&quot;)),
-        color = after_scale(desaturate(lighten(color, .25), .4))),
-    size=3, stroke = 1
-  ) +
-  scale_color_manual(values = PALETTE_TTYPE) +
-  labs(y= &quot;Median correlation&quot;,
-       color = &quot;&quot;) + theme(legend.position = &quot;top&quot;,
-                          legend.title = element_blank(),
-        legend.spacing.y = unit(0, &quot;mm&quot;),
-        panel.border = element_rect(colour = &quot;black&quot;, fill=NA),
-        legend.background = element_blank(),
-        legend.box.background = element_rect(colour = &quot;black&quot;)) +
-  theme(axis.text.x = element_text( color = &quot;black&quot;, size =16, family = &quot;serif&quot;, hjust = 1),
-        axis.text.y = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
-        axis.title = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;)) + xlab(&quot;&quot;) + coord_flip() + 
-  labs(y= &quot;Median mRNA-protein correlation&quot;, 
-       color = &quot;Tissue&quot;) + ggtitle(&quot;CCLE&quot;)
-
-plot_ccle</code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-11-1.png" width="960" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>#ggsave(filename = &quot;output/Publication/Figures/Supp_Figure1c_CCLE_pathways.png&quot;, height =7, width =8, plot = plot, dpi = 1200)</code></pre>
 <pre class="r"><code>pathways_ccle = do.call(rbind, correlation_per_pathway) %&gt;%
   dplyr::filter(Pathway %in% c(&quot;PI3K&quot;, &quot;NOTCH&quot;, &quot;WNT&quot;, &quot;RTK RAS&quot;, &quot;TGF-Beta&quot;,
                                &quot;HIPPO&quot;)) %&gt;%
@@ -1019,46 +1115,6 @@ correlation_per_pathway = lapply(names(pathway_genes), function(x) {
   return(pathway_medians)
 
 })</code></pre>
-<pre class="r"><code>plot_cptac = do.call(rbind, correlation_per_pathway) %&gt;%
-  dplyr::filter(Pathway %in% c(&quot;PI3K&quot;, &quot;NOTCH&quot;, &quot;WNT&quot;, &quot;RTK RAS&quot;, &quot;TGF-Beta&quot;,
-                               &quot;HIPPO&quot;)) %&gt;%
-  rbind(correlation_per_kegg) %&gt;%
-  mutate(Pathway = ifelse(Pathway == &quot;Oxidative phosphorylation&quot;, &quot;OXPHOS&quot;, Pathway)) %&gt;%
-  melt() %&gt;%
-  mutate(Pathway = factor(Pathway, levels = 
-                            c(&quot;Ribosome&quot;, &quot;OXPHOS&quot;,
-                              &quot;Proteasome&quot;, &quot;Spliceosome&quot;, &quot;PI3K&quot;, 
-                              &quot;NOTCH&quot;, &quot;Cell cycle&quot;, &quot;Apoptosis&quot;, 
-                              &quot;WNT&quot;, &quot;RTK RAS&quot;, &quot;TGF-Beta&quot;, &quot;HIPPO&quot;, 
-                              &quot;Focal adhesion&quot;))) %&gt;%
-
-  ggplot(aes(x=Pathway, y=value)) + geom_boxplot() +
-  theme_bw() +   theme_bw() +  #geom_jitter(aes(color = variable), size=4, shape = 1, stroke = 1.5) +
-  geom_jitter(
-    aes(color = variable,
-        #color = after_scale(darken(color, .1, space = &quot;HLS&quot;)),
-        color = after_scale(desaturate(lighten(color, .25), .4))),
-    size=3, stroke = 1
-  ) +
-  scale_color_manual(values = PALETTE_TTYPE) +
-  labs(y= &quot;Median correlation&quot;,
-       color = &quot;&quot;) + theme(legend.position = &quot;top&quot;,
-                          legend.title = element_blank(),
-        legend.spacing.y = unit(0, &quot;mm&quot;),
-        panel.border = element_rect(colour = &quot;black&quot;, fill=NA),
-        legend.background = element_blank(),
-        legend.box.background = element_rect(colour = &quot;black&quot;)) +
-  theme(axis.text.x = element_text( color = &quot;black&quot;, size =16, family = &quot;serif&quot;, hjust = 1),
-        axis.text.y = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
-        axis.title = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;)) + xlab(&quot;&quot;) + coord_flip() + 
-  labs(y= &quot;Median mRNA-protein correlation&quot;, 
-       color = &quot;Tissue&quot;) + ggtitle(&quot;CPTAC&quot;)
-
-
-
-
-
-# ggsave(filename = &quot;output/Publication/Figures/Supp_Figure_CPTAC_pathways.png&quot;, height =9, width =8, plot = plot, dpi = 1200)</code></pre>
 <pre class="r"><code>pathways_cptac = do.call(rbind, correlation_per_pathway) %&gt;%
   dplyr::filter(Pathway %in% c(&quot;PI3K&quot;, &quot;NOTCH&quot;, &quot;WNT&quot;, &quot;RTK RAS&quot;, &quot;TGF-Beta&quot;,
                                &quot;HIPPO&quot;)) %&gt;%
@@ -1101,12 +1157,116 @@ full_plot = rbind( pathways_cptac,pathways_ccle) %&gt;%
        color = &quot;Tissue&quot;) + facet_wrap(~Dataset)
   
 
- #ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_1C.png&quot;, height =10, width =18, plot = full_plot, dpi = 1200)
+full_plot </code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-13-1.png" alt="Boxplot showing median mRNA-protein correlations by tissue in the CPTAC (left) and CCLE (right) datasets for key biological and selected cancer-related pathways from Sanchez-Vega et al and KEGG, displayed similarly to data shown in Ghoshdastider et al " width="1920" />
+<p class="caption">
+Boxplot showing median mRNA-protein correlations by tissue in the CPTAC
+(left) and CCLE (right) datasets for key biological and selected
+cancer-related pathways from Sanchez-Vega et al and KEGG, displayed
+similarly to data shown in Ghoshdastider et al
+</p>
+</div>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_1C.png&quot;, height =10, width =18, plot = full_plot, dpi = 1200)
 
 
 #write.table(pathways_data,  &quot;output/Pathways_median_all_datasets.tsv&quot;, sep = &quot;\t&quot;, row.names = FALSE, quote = FALSE)</code></pre>
 </div>
 </div>
+</div>
+<div id="supplementary-figure-2" class="section level1">
+<h1>Supplementary Figure 2</h1>
+<div id="supp-figure-2a-and-supp-figure-2b" class="section level2">
+<h2>Supp Figure 2a and Supp Figure 2b</h2>
+<pre class="r"><code>clusters = read.csv(&quot;output/Publication/Data/clusters.csv&quot;, row.names = 1) %&gt;%
+  mutate(Dataset= &quot;ProCan-DepMapSanger&quot;) %&gt;%
+  drop_na(clusters) %&gt;% 
+  mutate(Cluster =clusters )
+
+ccle = read.csv(&quot;output/correlations-datasets/CCLE-correlations-tissue.csv&quot;, row.names = 1)
+cptac_dist = cr_correlations %&gt;%
+  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;%
+   mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein,
+                        keytype = &quot;ENSEMBL&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
+  dplyr::filter(Gene %in% clusters$Gene) %&gt;%
+  left_join(clusters %&gt;%
+              dplyr::select(Gene, Cluster), by = &quot;Gene&quot;) %&gt;%
+    mutate(Dataset= c(&quot;Clinical Proteomic Tumor Analysis Consortium (CPTAC)&quot;)) %&gt;%
+  distinct() %&gt;%
+  dplyr::select(-Tissue, -Protein) %&gt;%
+  dplyr::select(Gene,Cluster, Correlation, ,Dataset) %&gt;%
+ rbind(clusters %&gt;%
+         dplyr::select(Gene, Cluster, Correlation,Dataset )) %&gt;% as.data.frame() %&gt;%
+  ggplot(aes(x=Correlation, fill = Dataset)) +
+   geom_histogram(color=&quot;black&quot;) + theme_bw() +
+  facet_grid(rows = vars(Cluster), scales = &quot;free_y&quot;) +
+  scale_fill_manual(values = c(&quot;Clinical Proteomic Tumor Analysis Consortium (CPTAC)&quot; = &quot;#f07167&quot;,
+                               &quot;ProCan-DepMapSanger&quot; = &quot;#3d405b&quot;)) + ylab(&quot;Number of Proteins&quot;) +
+     theme(legend.position = &quot;top&quot;,
+        legend.spacing.y = unit(0, &quot;mm&quot;),
+        panel.border = element_rect(colour = &quot;black&quot;, fill=NA),
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = &quot;black&quot;)) +
+  theme(axis.text.x = element_text( color = &quot;black&quot;, size =16, family = &quot;serif&quot;, hjust = 1),
+        axis.text.y = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
+        axis.title = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
+        strip.text = element_text(size = 14),
+        legend.position = &quot;top&quot;,
+                  legend.text = element_text(size = 12, family = &quot;serif&quot;),
+  legend.title = element_blank()) + xlab(&quot;mRNA-protein correlation&quot;)
+
+ggsave(plot = cptac_dist , filename = &quot;output/Publication/Figures/CPTAC_clusters_Supp_Fig_2a.png&quot;,
+       height = 8, width = 7, dpi = 1200)</code></pre>
+<pre class="r"><code>ccle_dist= ccle %&gt;%
+  dplyr::rename(Gene = Protein) %&gt;%
+  dplyr::filter(Gene %in% clusters$Gene) %&gt;%
+  left_join(clusters %&gt;%
+              dplyr::select(Gene, Cluster), by = &quot;Gene&quot;) %&gt;%
+    mutate(Dataset= c(&quot;Cancer Cell Line Encyclopedia (CCLE)&quot;)) %&gt;%
+   distinct() %&gt;%
+  dplyr::select(Gene, Correlation, Cluster, Dataset) %&gt;%
+  rbind(clusters %&gt;%
+         dplyr::select(Gene, Cluster, Correlation,Dataset ))  %&gt;% as.data.frame() %&gt;%
+  ggplot(aes(x=Correlation, fill = Dataset)) +
+   geom_histogram(color=&quot;black&quot;) + theme_bw() +
+  facet_grid(rows = vars(Cluster), scales = &quot;free_y&quot;) +
+  scale_fill_manual(values = c(&quot;Cancer Cell Line Encyclopedia (CCLE)&quot; = &quot;#83c5be&quot;,
+                               &quot;ProCan-DepMapSanger&quot; = &quot;#3d405b&quot;)) +
+  ylab(&quot;Number of Proteins&quot;) +
+     theme(legend.position = &quot;top&quot;,
+                          legend.title = element_blank(),
+        legend.spacing.y = unit(0, &quot;mm&quot;),
+        panel.border = element_rect(colour = &quot;black&quot;, fill=NA),
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = &quot;black&quot;)) +
+  theme(axis.text.x = element_text( color = &quot;black&quot;, size =16, family = &quot;serif&quot;, hjust = 1),
+        axis.text.y = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
+        axis.title = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
+        strip.text = element_text(size = 14),
+        legend.position = &quot;top&quot;,
+        legend.text = element_text(size = 12, family = &quot;serif&quot;)) + xlab(&quot;mRNA-protein correlation&quot;)
+
+
+ggsave(plot = ccle_dist , filename = &quot;output/Publication/Figures/CCLE_clusters_Supp_Fig_2b.png&quot;,
+       height = 8, width = 7, dpi = 1200)
+
+
+
+ggarrange(cptac_dist, ccle_dist, ncol =2)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-15-1.png" alt="mRNA-protein correlations within clusters of cancer driver genes from the Clinical Proteomic Tumor Analysis Consortium (CPTAC) and Cancer Cell Line Encyclopedia (CCLE). Distribution of mRNA-protein correlations within tissue types for each cancer driver gene cluster identified in Figure 2a." width="1152" />
+<p class="caption">
+mRNA-protein correlations within clusters of cancer driver genes from
+the Clinical Proteomic Tumor Analysis Consortium (CPTAC) and Cancer Cell
+Line Encyclopedia (CCLE). Distribution of mRNA-protein correlations
+within tissue types for each cancer driver gene cluster identified in
+Figure 2a.
+</p>
+</div>
+</div>
+</div>
+<div id="supplementary-figure-3" class="section level1">
+<h1>Supplementary Figure 3</h1>
 <div id="supp-figure-3a" class="section level2">
 <h2>Supp Figure 3A</h2>
 <pre class="r"><code>file_dir = file.path(&quot;/Users/unawaz/Documents/2023/RNA-protein-correlationx/Data/&quot;)
@@ -1114,9 +1274,9 @@ cptac = read.csv(&quot;output/correlations-datasets/correlation-overall-cptac-li
 ccle = read.csv(&quot;output/correlations-datasets/CCLE-correlations-overall.csv&quot;, header=TRUE)
 correlation_overall= read.csv(&quot;output/correlations-datasets/correlation-all-nontransformed.csv&quot;,
                             header=TRUE, row.names = 1)</code></pre>
-<pre class="r"><code>ranks = read_excel(&quot;data/Ranks/1-s2.0-S2667237522001709-mmc3.xlsx&quot;, sheet=3) %&gt;% 
-  as.data.frame() %&gt;% 
-  dplyr::rename(&quot;Gene&quot; = &quot;...1&quot;) %&gt;% 
+<pre class="r"><code>ranks = read_excel(&quot;data/Ranks/1-s2.0-S2667237522001709-mmc3.xlsx&quot;, sheet=3) %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::rename(&quot;Gene&quot; = &quot;...1&quot;) %&gt;%
   mutate(Bin = case_when(
     between(`Aggregated Reproducibility Rank`, 0, 0.2) ~ &quot;0 - 0.2&quot;,
     between(`Aggregated Reproducibility Rank`, 0.2, 0.4) ~ &quot;0.2 - 0.4&quot;,
@@ -1132,34 +1292,34 @@ correlation_overall= read.csv(&quot;output/correlations-datasets/correlation-all
                                   &quot;0.8 - 1&quot;)))
 
 
-ranks_plot_cptac = cptac  %&gt;% 
-  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;% 
+ranks_plot_cptac = cptac  %&gt;%
+  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;%
    mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein,
                         keytype = &quot;ENSEMBL&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
   inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
   drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
     ggplot(aes(x=Bin, y = Correlation)) + geom_boxplot(fill=&quot;#8da9c4&quot;) + theme_bw() +  labs(x=&quot;Aggregated protein reproducibility rank\n(binned)&quot;,
-       y=&quot;mRNA-protein correlation&quot;, 
+       y=&quot;mRNA-protein correlation&quot;,
        title = &quot;CPTAC&quot;) +
   # annotate(&quot;text&quot;, x = 1, y = 0.9, size=6,
-  #label = &quot;paste(italic(r), \&quot; = 0.40\&quot;)&quot;, parse = TRUE, color = &quot;black&quot;) + 
+  #label = &quot;paste(italic(r), \&quot; = 0.40\&quot;)&quot;, parse = TRUE, color = &quot;black&quot;) +
   theme(axis.text.x = element_text( color = &quot;black&quot;, size =12),
         axis.text.y = element_text(color = &quot;black&quot;, size =12),
         axis.title = element_text(color = &quot;black&quot;, size =15)) +
     theme(
-        axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;), 
-        axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;), 
-        axis.title = element_text(size=20, family = &quot;serif&quot;), 
+        axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=20, family = &quot;serif&quot;),
          legend.box.background = element_rect(color = &quot;black&quot;),
-          legend.text = element_text(family = &quot;serif&quot;), 
+          legend.text = element_text(family = &quot;serif&quot;),
           legend.title = element_text( family = &quot;serif&quot;),
-           plot.title = element_text(family = &quot;serif&quot;, size =20),         
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
         panel.grid.major.x = element_blank(),
-              legend.position = &quot;top&quot;) 
+              legend.position = &quot;top&quot;)
 
 
-corr_plot_cptac = cptac  %&gt;% 
-  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;% 
+corr_plot_cptac = cptac  %&gt;%
+  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;%
    mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein,
                         keytype = &quot;ENSEMBL&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
   inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
@@ -1187,16 +1347,60 @@ corr_plot_cptac = cptac  %&gt;%
         ),
          strip.text.x = element_text(
         size = 16, family = &quot;serif&quot;
-        )) 
+        ))
 
-corr_plot_cptac </code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>cptac  %&gt;% 
-  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;% 
+ggarrange(ranks_plot_cptac ,corr_plot_cptac, nrow=2) </code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-17-1.png" alt="Association between aggregated protein reproducibility ranks from Upadhya et al and mRNA-protein correlations in the a Clinical Proteomic Tumor Analysis Consortium (CPTAC) dataset." width="576" />
+<p class="caption">
+Association between aggregated protein reproducibility ranks from
+Upadhya et al and mRNA-protein correlations in the a Clinical Proteomic
+Tumor Analysis Consortium (CPTAC) dataset.
+</p>
+</div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-17-1">
+Past versions of unnamed-chunk-17-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-17-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/urwahnawaz/OnCorr/blob/debfbfb5684aae59bf0ca220b356ac9b084d9d77/docs/figure/supplementary-publication-figures.Rmd/unnamed-chunk-17-1.png" target="_blank">debfbfb</a>
+</td>
+<td>
+Urwah Nawaz
+</td>
+<td>
+2025-06-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>cptac  %&gt;%
+  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;%
    mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein,
                         keytype = &quot;ENSEMBL&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
   inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
-  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;% 
+  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
   with(cor.test(.$Correlation, .$`Aggregated Reproducibility Rank`, method = &quot;spearman&quot;))</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
@@ -1207,10 +1411,12 @@ alternative hypothesis: true rho is not equal to 0
 sample estimates:
       rho 
 0.3954594 </code></pre>
+<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_3A_upper.png&quot;, height =3.5, width =7, plot = ranks_plot_cptac, dpi = 1200)
+ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_3A_lower.png&quot;, height =3.5, width =7, plot = corr_plot_cptac , dpi = 1200)</code></pre>
 <pre class="r"><code>ccle  %&gt;%
   dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;) %&gt;%
   inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
-  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;% 
+  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
   with(cor.test(.$Correlation, .$`Aggregated Reproducibility Rank`, method = &quot;spearman&quot;))</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
@@ -1221,11 +1427,6 @@ alternative hypothesis: true rho is not equal to 0
 sample estimates:
       rho 
 0.2948722 </code></pre>
-<pre class="r"><code>#ggarrange(ranks_plot_cptac,ranks_plot_ccle)
-
-
-#ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_3A_upper.png&quot;, height =3.5, width =7, plot = ranks_plot_cptac, dpi = 1200)
-# ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_3A_lower.png&quot;, height =3.5, width =7, plot = corr_plot_cptac , dpi = 1200)</code></pre>
 </div>
 <div id="supp-figure-3b" class="section level2">
 <h2>Supp Figure 3B</h2>
@@ -1235,23 +1436,23 @@ sample estimates:
   drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
     ggplot(aes(x=Bin, y = `Correlation`)) + geom_boxplot(fill=&quot;#8da9c4&quot;) + theme_bw() +
   labs(x=&quot;Aggregated protein reproducibility rank\n(binned)&quot;,
-       y=&quot;mRNA-protein correlation&quot;, 
-       title = &quot;CCLE&quot;) + 
+       y=&quot;mRNA-protein correlation&quot;,
+       title = &quot;CCLE&quot;) +
   # annotate(&quot;text&quot;, x = 1, y = 0.9, size=6,
- # label = &quot;paste(italic(r), \&quot; = 0.30\&quot;)&quot;, parse = TRUE, color = &quot;black&quot;) + 
+ # label = &quot;paste(italic(r), \&quot; = 0.30\&quot;)&quot;, parse = TRUE, color = &quot;black&quot;) +
   theme(axis.text.x = element_text( color = &quot;black&quot;, size =12),
         axis.text.y = element_text(color = &quot;black&quot;, size =12),
         axis.title = element_text(color = &quot;black&quot;, size =15)) +
     theme(
-        axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;), 
-        axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;), 
-        axis.title = element_text(size=20, family = &quot;serif&quot;), 
+        axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
+        axis.title = element_text(size=20, family = &quot;serif&quot;),
          legend.box.background = element_rect(color = &quot;black&quot;),
-          legend.text = element_text(family = &quot;serif&quot;), 
+          legend.text = element_text(family = &quot;serif&quot;),
           legend.title = element_text( family = &quot;serif&quot;),
-           plot.title = element_text(family = &quot;serif&quot;, size =20),         
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
         panel.grid.major.x = element_blank(),
-              legend.position = &quot;top&quot;) 
+              legend.position = &quot;top&quot;)
 
 
 
@@ -1282,15 +1483,22 @@ corr_plot_ccle = ccle  %&gt;%
         ),
          strip.text.x = element_text(
         size = 16, family = &quot;serif&quot;
-        )) 
+        ))
 
-corr_plot_ccle </code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+ggarrange(ranks_plot_ccle, corr_plot_ccle, nrow=2)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-19-1.png" alt="Association between aggregated protein reproducibility ranks from Upadhya et al and mRNA-protein correlations in the Cancer Cell Line Encyclopedia (CCLE) dataset." width="576" />
+<p class="caption">
+Association between aggregated protein reproducibility ranks from
+Upadhya et al and mRNA-protein correlations in the Cancer Cell Line
+Encyclopedia (CCLE) dataset.
+</p>
+</div>
 <pre class="r"><code>#ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_3B_upper.png&quot;, height =3.5, width =7, plot = ranks_plot_ccle , dpi = 1200)
 ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_3B_lower.png&quot;, height =3.5, width =7, plot = corr_plot_ccle , dpi = 1200)</code></pre>
 </div>
 <div id="supp-figure-3c" class="section level2">
-<h2>Supp Figure 3C</h2>
+<h2>Supp Figure 3c</h2>
 <pre class="r"><code>ranks = read_excel(&quot;data/Ranks/1-s2.0-S2667237522001709-mmc3.xlsx&quot;, sheet=3) %&gt;%
   as.data.frame() %&gt;%
   dplyr::rename(&quot;Gene&quot; = &quot;...1&quot;) %&gt;%
@@ -1335,249 +1543,100 @@ theme(
   title = element_text(color = &quot;black&quot;, size = 25, family = &quot;serif&quot;, face = &quot;bold&quot;)
 )
 
-cdk4 </code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
+cdk4</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-22-1.png" alt="istribution of mRNA-protein correlations across tissues for CDK4 in the ProCan-DepMapSanger (pink solid line), Clinical Proteomic Tumor Analysis Consortium (CPTAC; light dashed line) and Cancer Cell Line Encyclopedia (CCLE; dark dashed line) datasets. Background (grey solid line) indicates the median mRNA-protein correlation from all genes in the ProCan- DepMapSanger dataset. Only tissues with data from a minimum of ten samples are included" width="576" />
+<p class="caption">
+istribution of mRNA-protein correlations across tissues for CDK4 in the
+ProCan-DepMapSanger (pink solid line), Clinical Proteomic Tumor Analysis
+Consortium (CPTAC; light dashed line) and Cancer Cell Line Encyclopedia
+(CCLE; dark dashed line) datasets. Background (grey solid line)
+indicates the median mRNA-protein correlation from all genes in the
+ProCan- DepMapSanger dataset. Only tissues with data from a minimum of
+ten samples are included
+</p>
+</div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-22-1">
+Past versions of unnamed-chunk-22-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-22-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/urwahnawaz/OnCorr/blob/debfbfb5684aae59bf0ca220b356ac9b084d9d77/docs/figure/supplementary-publication-figures.Rmd/unnamed-chunk-22-1.png" target="_blank">debfbfb</a>
+</td>
+<td>
+Urwah Nawaz
+</td>
+<td>
+2025-06-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggsave(plot = cdk4, filename = &quot;output/Publication/Figures/CDK4-dist.png&quot;, height = 7, width =7, dpi=1200)</code></pre>
 </div>
-<div id="supp-figure-2a" class="section level2">
-<h2>Supp Figure 2a</h2>
-<pre class="r"><code>clusters = read.csv(&quot;output/Publication/Data/clusters.csv&quot;, row.names = 1) %&gt;% 
-  mutate(Dataset= &quot;ProCan-DepMapSanger&quot;) %&gt;% 
-  drop_na(Cluster)
-
-ccle = read.csv(&quot;output/correlations-datasets/CCLE-correlations-tissue.csv&quot;, row.names = 1)
-cptac_dist = cr_correlations %&gt;% 
-  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;% 
-   mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein,
-                        keytype = &quot;ENSEMBL&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
-  dplyr::filter(Gene %in% clusters$Gene) %&gt;%
-  left_join(clusters %&gt;%
-              dplyr::select(Gene, Cluster), by = &quot;Gene&quot;) %&gt;% 
-    mutate(Dataset= c(&quot;Clinical Proteomic Tumor Analysis Consortium (CPTAC)&quot;)) %&gt;% 
-  distinct() %&gt;%
-  dplyr::select(-Tissue, -Protein) %&gt;% 
-  dplyr::select(Gene,Cluster, Correlation, ,Dataset) %&gt;%
- rbind(clusters %&gt;% 
-         dplyr::select(Gene, Cluster, Correlation,Dataset )) %&gt;% as.data.frame() %&gt;% 
-  ggplot(aes(x=Correlation, fill = Dataset)) +
-   geom_histogram(color=&quot;black&quot;) + theme_bw() +
-  facet_grid(rows = vars(Cluster), scales = &quot;free_y&quot;) +
-  scale_fill_manual(values = c(&quot;Clinical Proteomic Tumor Analysis Consortium (CPTAC)&quot; = &quot;#f07167&quot;, 
-                               &quot;ProCan-DepMapSanger&quot; = &quot;#3d405b&quot;)) + ylab(&quot;Number of Proteins&quot;) +
-     theme(legend.position = &quot;top&quot;,
-        legend.spacing.y = unit(0, &quot;mm&quot;), 
-        panel.border = element_rect(colour = &quot;black&quot;, fill=NA),
-        legend.background = element_blank(),
-        legend.box.background = element_rect(colour = &quot;black&quot;)) +
-  theme(axis.text.x = element_text( color = &quot;black&quot;, size =16, family = &quot;serif&quot;, hjust = 1),
-        axis.text.y = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
-        axis.title = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
-        strip.text = element_text(size = 14), 
-        legend.position = &quot;top&quot;, 
-                  legend.text = element_text(size = 12, family = &quot;serif&quot;),
-  legend.title = element_blank()) + xlab(&quot;mRNA-protein correlation&quot;)
-
-cptac_dist</code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggsave(plot = cptac_dist , filename = &quot;output/Publication/Figures/CPTAC_clusters_Supp_Fig_2a.png&quot;, 
-       height = 8, width = 7, dpi = 1200)</code></pre>
-</div>
-<div id="supp-figure-2b" class="section level2">
-<h2>Supp Figure 2b</h2>
-<pre class="r"><code>ccle_dist= ccle %&gt;% 
-  dplyr::rename(Gene = Protein) %&gt;% 
-  dplyr::filter(Gene %in% clusters$Gene) %&gt;%
-  left_join(clusters %&gt;%
-              dplyr::select(Gene, Cluster), by = &quot;Gene&quot;) %&gt;% 
-    mutate(Dataset= c(&quot;Cancer Cell Line Encyclopedia (CCLE)&quot;)) %&gt;% 
-   distinct() %&gt;% 
-  dplyr::select(Gene, Correlation, Cluster, Dataset) %&gt;%
-  rbind(clusters %&gt;% 
-         dplyr::select(Gene, Cluster, Correlation,Dataset ))  %&gt;% as.data.frame() %&gt;% 
-  ggplot(aes(x=Correlation, fill = Dataset)) +
-   geom_histogram(color=&quot;black&quot;) + theme_bw() +
-  facet_grid(rows = vars(Cluster), scales = &quot;free_y&quot;) +
-  scale_fill_manual(values = c(&quot;Cancer Cell Line Encyclopedia (CCLE)&quot; = &quot;#83c5be&quot;, 
-                               &quot;ProCan-DepMapSanger&quot; = &quot;#3d405b&quot;)) +
-  ylab(&quot;Number of Proteins&quot;) +
-     theme(legend.position = &quot;top&quot;,
-                          legend.title = element_blank(),
-        legend.spacing.y = unit(0, &quot;mm&quot;), 
-        panel.border = element_rect(colour = &quot;black&quot;, fill=NA),
-        legend.background = element_blank(),
-        legend.box.background = element_rect(colour = &quot;black&quot;)) +
-  theme(axis.text.x = element_text( color = &quot;black&quot;, size =16, family = &quot;serif&quot;, hjust = 1),
-        axis.text.y = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;),
-        axis.title = element_text(color = &quot;black&quot;, size =16, family = &quot;serif&quot;), 
-        strip.text = element_text(size = 14), 
-        legend.position = &quot;top&quot;,
-        legend.text = element_text(size = 12, family = &quot;serif&quot;)) + xlab(&quot;mRNA-protein correlation&quot;)
-
-
-ggsave(plot = ccle_dist , filename = &quot;output/Publication/Figures/CCLE_clusters_Supp_Fig_2b.png&quot;, 
-       height = 8, width = 7, dpi = 1200)</code></pre>
-<pre class="r"><code> corr_scatter = ccle  %&gt;%
-  dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;) %&gt;%
-  inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
-  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
-  ggplot(aes(x = `Aggregated Reproducibility Rank`, y = Correlation)) + 
-  geom_point(size =3) + geom_smooth(method = &quot;lm&quot;, color = &quot;blue&quot;, fill = &quot;lightgray&quot;, se = TRUE) +
-    theme_bw() + xlab(&quot;mRNA-protein correlation&quot;) +
-  ylab(&quot;Aggregated protein reproducibility ranks&quot;) +   
-   annotate(&quot;text&quot;, x = 0.06, y = 0.9, size=6,
-  label = &quot;paste(italic(r), \&quot; = 0.30\&quot;)&quot;, parse = TRUE, color = &quot;black&quot;) +
-  theme(axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
-            axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
-        axis.title = element_text(size=20, family = &quot;serif&quot;), 
-         legend.box.background = element_rect(color = &quot;black&quot;),
-          legend.text = element_text(family = &quot;serif&quot;), 
-          legend.title = element_text( family = &quot;serif&quot;),
-           plot.title = element_text(family = &quot;serif&quot;, size =20),         
-        panel.grid.major.x = element_blank(),
-        panel.grid.major.y = element_line( size=.1 ),
-              legend.position = &quot;top&quot;,
-        strip.text.y = element_text(
-        size = 16, face = &quot;bold.italic&quot;, family = &quot;serif&quot;
-        ),
-         strip.text.x = element_text(
-        size = 16, family = &quot;serif&quot;
-        )) + ggtitle(&quot;CCLE&quot;)
-
-
-ggsave(filename = &quot;output/Publication/Figures/Supp-Figure-3A.png.png&quot;, height =6.5, width =7, plot = corr_scatter, dpi = 1200)</code></pre>
-<pre class="r"><code>cptac_corr = cptac  %&gt;% 
-  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;% 
-   mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein,
-                        keytype = &quot;ENSEMBL&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
-  inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
-  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
-  ggplot(aes(x = `Aggregated Reproducibility Rank`, y = Correlation)) + 
-  geom_point(size =3) + geom_smooth(method = &quot;lm&quot;, color = &quot;blue&quot;, fill = &quot;lightgray&quot;, se = TRUE) +
-    theme_bw() + xlab(&quot;mRNA-protein correlation&quot;) +
-  ylab(&quot;Aggregated protein reproducibility ranks&quot;) +   
-   annotate(&quot;text&quot;, x = 0.06, y = 0.9, size=6,
-  label = &quot;paste(italic(r), \&quot; = 0.40\&quot;)&quot;, parse = TRUE, color = &quot;black&quot;) +
-  theme(axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
-            axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
-        axis.title = element_text(size=20, family = &quot;serif&quot;), 
-         legend.box.background = element_rect(color = &quot;black&quot;),
-          legend.text = element_text(family = &quot;serif&quot;), 
-          legend.title = element_text( family = &quot;serif&quot;),
-           plot.title = element_text(family = &quot;serif&quot;, size =20),         
-        panel.grid.major.x = element_blank(),
-        panel.grid.major.y = element_line( size=.1 ),
-              legend.position = &quot;top&quot;,
-        strip.text.y = element_text(
-        size = 16, face = &quot;bold.italic&quot;, family = &quot;serif&quot;
-        ),
-         strip.text.x = element_text(
-        size = 16, family = &quot;serif&quot;
-        )) + ggtitle(&quot;CPTAC&quot;)
-
-ggsave(filename = &quot;output/Publication/Figures/Supp-Figure-3B.png&quot;, height =6.5, width =7, plot = cptac_corr , dpi = 1200)</code></pre>
-<pre class="r"><code>cptac  %&gt;% 
-  mutate(Protein =  gsub(&quot;\\.\\d+$&quot;, &quot;&quot;, Protein)) %&gt;% 
-   mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein,
-                        keytype = &quot;ENSEMBL&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
-  inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
-  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;% 
-  with(cor.test(.$Correlation, .$`Aggregated Reproducibility Rank`, method = &quot;spearman&quot;))</code></pre>
-<pre><code>
-    Spearman&#39;s rank correlation rho
-
-data:  .$Correlation and .$`Aggregated Reproducibility Rank`
-S = 1.1702e+10, p-value &lt; 2.2e-16
-alternative hypothesis: true rho is not equal to 0
-sample estimates:
-      rho 
-0.3954594 </code></pre>
-<pre class="r"><code>ccle  %&gt;%
-  dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;) %&gt;%
-  inner_join(ranks, by = &quot;Gene&quot;) %&gt;% drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;% 
-  with(cor.test(.$Correlation, .$`Aggregated Reproducibility Rank`, method = &quot;spearman&quot;))</code></pre>
-<pre><code>
-    Spearman&#39;s rank correlation rho
-
-data:  .$Correlation and .$`Aggregated Reproducibility Rank`
-S = 3.4144e+13, p-value &lt; 2.2e-16
-alternative hypothesis: true rho is not equal to 0
-sample estimates:
-      rho 
-0.3035998 </code></pre>
-<pre class="r"><code>ccle  %&gt;%
-  dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;) %&gt;%
-  inner_join(ranks, by = &quot;Gene&quot;) %&gt;% drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;% 
-  with(cor.test(.$Correlation, .$`Aggregated Reproducibility Rank`, method = &quot;spearman&quot;))</code></pre>
-<pre><code>
-    Spearman&#39;s rank correlation rho
-
-data:  .$Correlation and .$`Aggregated Reproducibility Rank`
-S = 3.4144e+13, p-value &lt; 2.2e-16
-alternative hypothesis: true rho is not equal to 0
-sample estimates:
-      rho 
-0.3035998 </code></pre>
-<pre class="r"><code> ccle  %&gt;%
-  dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;) %&gt;%
-  inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
-  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
- ggplot(aes(x= `Aggregated Reproducibility Rank`, y = `Correlation`)) + geom_point(fill=&quot;#8da9c4&quot;) + theme_bw() +
-  labs(x=&quot;Aggregated protein ranks (bins)&quot;,
-       y=&quot;mRNA-protein correlation&quot;, 
-       title = &quot;CCLE&quot;)</code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code> ccle  %&gt;%
-  dplyr::rename(&quot;Gene&quot; = &quot;Protein&quot;) %&gt;%
-  inner_join(ranks, by = &quot;Gene&quot;) %&gt;%
-  drop_na(&quot;Aggregated Reproducibility Rank&quot;) %&gt;%
-     ggscatter(.,x=&quot;Correlation&quot;, y =&quot;Aggregated Reproducibility Rank&quot;, cor.coef = TRUE, add = &quot;reg.line&quot;,
-              conf.int = TRUE, add.params = list(color = &quot;blue&quot;,
-                                                 fill = &quot;lightgray&quot;))</code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-26-2.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
 <div id="supp-figure-3d" class="section level2">
-<h2>Supp Figure 3D</h2>
+<h2>Supp Figure 3d</h2>
 <pre class="r"><code>file_dir = file.path(&quot;/Users/unawaz/Documents/2023/RNA-protein-correlationx/Data/&quot;)
-
 data = list()
 
-## Metadata 
+## Metadata
 data$sample_md = read.delim(&quot;~/Documents/2023/RNA-protein-correlationx/Data/e0022_diann_051021_sample_mapping_averaged.txt&quot;)
 data$sample_md_rep = read.table(file.path(file_dir, &quot;e0022_diann_051021_sample_mapping_replicates.txt&quot;), header=TRUE, sep = &quot;\t&quot;)
 
 
-data$prt_mtx =  read.delim(file.path(file_dir, &quot;e0022_diann_051021_working_matrix_averaged.txt&quot;), 
-                           header = TRUE, fill = TRUE, check.names = FALSE) 
+data$prt_mtx =  read.delim(file.path(file_dir, &quot;e0022_diann_051021_working_matrix_averaged.txt&quot;),
+                           header = TRUE, fill = TRUE, check.names = FALSE)
 
 data$rna_mtx = read.delim(gzfile(file.path(file_dir, &quot;rnaseq_voom.csv.gz&quot;)), header = TRUE,
                           fill = TRUE, sep = &quot;,&quot;,
-                          row.names = 1, check.names = FALSE) </code></pre>
+                          row.names = 1, check.names = FALSE)</code></pre>
 <pre class="r"><code>library(ggbeeswarm)
- cdk4_swarm = data$rna_mtx %&gt;% 
-  t() %&gt;% 
-  as.data.frame() %&gt;% 
-  dplyr::select(&quot;CDK4&quot;) %&gt;% 
-  scale() %&gt;% 
-  as.data.frame() %&gt;% 
-  mutate(Outlier = ifelse(CDK4 &gt; 3, &quot;Yes&quot;, &quot;No&quot;)) %&gt;% 
-  rownames_to_column(&quot;SIDM&quot;) %&gt;% 
-  left_join(data$rna_mtx %&gt;% 
-  t() %&gt;% 
-  as.data.frame() %&gt;% 
-  dplyr::select(&quot;RNA&quot; = &quot;CDK4&quot;) %&gt;% 
-  rownames_to_column(&quot;SIDM&quot;), by = &quot;SIDM&quot;) %&gt;% 
+ cdk4_swarm = data$rna_mtx %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(&quot;CDK4&quot;) %&gt;%
+  scale() %&gt;%
+  as.data.frame() %&gt;%
+  mutate(Outlier = ifelse(CDK4 &gt; 3, &quot;Yes&quot;, &quot;No&quot;)) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;) %&gt;%
+  left_join(data$rna_mtx %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(&quot;RNA&quot; = &quot;CDK4&quot;) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;), by = &quot;SIDM&quot;) %&gt;%
     ggplot(aes(y = RNA, x=&#39;&#39;, color = Outlier)) +
   geom_beeswarm(cex=3, size=3) +
-   scale_color_manual(values = c(&quot;No&quot; = &quot;#8d99ae&quot;, 
+   scale_color_manual(values = c(&quot;No&quot; = &quot;#8d99ae&quot;,
                                 &quot;Yes&quot; = &quot;#bc4749&quot;))  +
   theme(legend.position = &quot;top&quot;) + theme_bw() +
     theme(axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
             axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
-        axis.title = element_text(size=20, family = &quot;serif&quot;), 
+        axis.title = element_text(size=20, family = &quot;serif&quot;),
          legend.box.background = element_rect(color = &quot;black&quot;),
-          legend.text = element_text(family = &quot;serif&quot;, size=20), 
+          legend.text = element_text(family = &quot;serif&quot;, size=20),
           legend.title = element_text( family = &quot;serif&quot;, size =20),
-           plot.title = element_text(family = &quot;serif&quot;, size =20),         
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
         panel.grid.major.x = element_blank(),
         panel.grid.major.y = element_line( size=.1 ),
               legend.position = &quot;top&quot;,
@@ -1588,46 +1647,56 @@ data$rna_mtx = read.delim(gzfile(file.path(file_dir, &quot;rnaseq_voom.csv.gz&qu
         size = 10, family = &quot;serif&quot;
         )) + ggtitle(&quot;CDK4&quot;) + xlab(&quot;Samples&quot;) + ylab(&quot;RNA expression&quot;) + labs(color = &quot;Outlier in RNA-seq&quot;)
 
- cdk4_swarm</code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
+cdk4_swarm</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-24-1.png" alt="Distribution of CDK4 mRNA expression across samples from the ProCan-DepMapSanger dataset, with outliers (&gt; 3 standard deviations above the mean) indicated." width="576" />
+<p class="caption">
+Distribution of CDK4 mRNA expression across samples from the
+ProCan-DepMapSanger dataset, with outliers (&gt; 3 standard deviations
+above the mean) indicated.
+</p>
+</div>
 <pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Supp-Fig_3D.png&quot;,height = 6, width = 6, plot =  cdk4_swarm, dpi = 1200 )</code></pre>
-<pre class="r"><code>cdk4 =  data$rna_mtx %&gt;% 
-  t() %&gt;% 
-  as.data.frame() %&gt;% 
-  dplyr::select(&quot;CDK4&quot;) %&gt;% 
-  scale() %&gt;% 
-  as.data.frame() %&gt;% 
-  mutate(Outlier = ifelse(CDK4 &gt; 3, &quot;Yes&quot;, &quot;No&quot;)) %&gt;% 
-  rownames_to_column(&quot;SIDM&quot;) %&gt;% 
-  left_join(data$rna_mtx %&gt;% 
-  t() %&gt;% 
-  as.data.frame() %&gt;% 
-  dplyr::select(&quot;RNA&quot; = &quot;CDK4&quot;) %&gt;% 
-  rownames_to_column(&quot;SIDM&quot;), by = &quot;SIDM&quot;) %&gt;% 
-  left_join(data$prt_mtx %&gt;% 
-  mutate(Project_Identifier = gsub(&quot;;.*&quot;, &quot;&quot;, Project_Identifier)) %&gt;% 
-  column_to_rownames(&quot;Project_Identifier&quot;) %&gt;% 
+</div>
+<div id="supp-figure-3e" class="section level2">
+<h2>Supp Figure 3e</h2>
+<pre class="r"><code>cdk4 =  data$rna_mtx %&gt;%
   t() %&gt;%
   as.data.frame() %&gt;%
-  rownames_to_column(&quot;Protein&quot;) %&gt;% 
+  dplyr::select(&quot;CDK4&quot;) %&gt;%
+  scale() %&gt;%
+  as.data.frame() %&gt;%
+  mutate(Outlier = ifelse(CDK4 &gt; 3, &quot;Yes&quot;, &quot;No&quot;)) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;) %&gt;%
+  left_join(data$rna_mtx %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(&quot;RNA&quot; = &quot;CDK4&quot;) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;), by = &quot;SIDM&quot;) %&gt;%
+  left_join(data$prt_mtx %&gt;%
+  mutate(Project_Identifier = gsub(&quot;;.*&quot;, &quot;&quot;, Project_Identifier)) %&gt;%
+  column_to_rownames(&quot;Project_Identifier&quot;) %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  rownames_to_column(&quot;Protein&quot;) %&gt;%
   mutate(&quot;Protein_name&quot; = gsub(&quot;;.*&quot;, &quot;&quot;, Protein)) %&gt;%
   mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein_name,
-                         keytype = &quot;UNIPROT&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;% 
-  dplyr::select(-c(Protein_name, Protein)) %&gt;% 
-  dplyr::filter(Gene == &quot;CDK4&quot;) %&gt;% 
-  column_to_rownames(&quot;Gene&quot;) %&gt;% 
+                         keytype = &quot;UNIPROT&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
+  dplyr::select(-c(Protein_name, Protein)) %&gt;%
+  dplyr::filter(Gene == &quot;CDK4&quot;) %&gt;%
+  column_to_rownames(&quot;Gene&quot;) %&gt;%
   melt() %&gt;% set_colnames(c(&quot;SIDM&quot;, &quot;Protein&quot;))) %&gt;%
-  ggplot(aes(x=RNA, y =Protein, color = Outlier)) + geom_point(size = 3.5) + theme_bw()  + 
- scale_color_manual(values = c(&quot;No&quot; = &quot;#8d99ae&quot;, 
+  ggplot(aes(x=RNA, y =Protein, color = Outlier)) + geom_point(size = 3.5) + theme_bw()  +
+ scale_color_manual(values = c(&quot;No&quot; = &quot;#8d99ae&quot;,
                                 &quot;Yes&quot; = &quot;#bc4749&quot;))  +
   theme(legend.position = &quot;top&quot;) +
     theme(axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
             axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
-        axis.title = element_text(size=20, family = &quot;serif&quot;), 
+        axis.title = element_text(size=20, family = &quot;serif&quot;),
          legend.box.background = element_rect(color = &quot;black&quot;),
-          legend.text = element_text(family = &quot;serif&quot;), 
+          legend.text = element_text(family = &quot;serif&quot;),
           legend.title = element_text( family = &quot;serif&quot;),
-           plot.title = element_text(family = &quot;serif&quot;, size =20),         
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
         panel.grid.major.x = element_blank(),
         panel.grid.major.y = element_line( size=.1 ),
               legend.position = &quot;none&quot;,
@@ -1636,50 +1705,50 @@ data$rna_mtx = read.delim(gzfile(file.path(file_dir, &quot;rnaseq_voom.csv.gz&qu
         ),
          strip.text.x = element_text(
         size = 10, family = &quot;serif&quot;
-        )) + ggtitle(&quot;CDK4&quot;) + labs(y = &quot;Protein abundance&quot;, 
+        )) + ggtitle(&quot;CDK4&quot;) + labs(y = &quot;Protein abundance&quot;,
                                     x = &quot;RNA expression&quot;)
-  
-cdk4</code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/cdk4-rna-prt.png&quot;,height = 6, width = 6, plot = cdk4, dpi = 1200 )</code></pre>
-<pre class="r"><code>cdk4_prt_swarm = data$rna_mtx %&gt;% 
-  t() %&gt;% 
-  as.data.frame() %&gt;% 
-  dplyr::select(&quot;CDK4&quot;) %&gt;% 
-  scale() %&gt;% 
-  as.data.frame() %&gt;% 
-  mutate(Outlier = ifelse(CDK4 &gt; 3, &quot;Yes&quot;, &quot;No&quot;)) %&gt;% 
-  rownames_to_column(&quot;SIDM&quot;) %&gt;% 
-  left_join(data$rna_mtx %&gt;% 
-  t() %&gt;% 
-  as.data.frame() %&gt;% 
-  dplyr::select(&quot;RNA&quot; = &quot;CDK4&quot;) %&gt;% 
-  rownames_to_column(&quot;SIDM&quot;), by = &quot;SIDM&quot;) %&gt;% 
-  left_join(data$prt_mtx %&gt;% 
-  mutate(Project_Identifier = gsub(&quot;;.*&quot;, &quot;&quot;, Project_Identifier)) %&gt;% 
-  column_to_rownames(&quot;Project_Identifier&quot;) %&gt;% 
+
+ggsave(filename = &quot;output/Publication/Figures/cdk4-rna-prt.png&quot;,height = 6, width = 6, plot = cdk4, dpi = 1200 )
+
+
+cdk4_prt_swarm = data$rna_mtx %&gt;%
   t() %&gt;%
   as.data.frame() %&gt;%
-  rownames_to_column(&quot;Protein&quot;) %&gt;% 
+  dplyr::select(&quot;CDK4&quot;) %&gt;%
+  scale() %&gt;%
+  as.data.frame() %&gt;%
+  mutate(Outlier = ifelse(CDK4 &gt; 3, &quot;Yes&quot;, &quot;No&quot;)) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;) %&gt;%
+  left_join(data$rna_mtx %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  dplyr::select(&quot;RNA&quot; = &quot;CDK4&quot;) %&gt;%
+  rownames_to_column(&quot;SIDM&quot;), by = &quot;SIDM&quot;) %&gt;%
+  left_join(data$prt_mtx %&gt;%
+  mutate(Project_Identifier = gsub(&quot;;.*&quot;, &quot;&quot;, Project_Identifier)) %&gt;%
+  column_to_rownames(&quot;Project_Identifier&quot;) %&gt;%
+  t() %&gt;%
+  as.data.frame() %&gt;%
+  rownames_to_column(&quot;Protein&quot;) %&gt;%
   mutate(&quot;Protein_name&quot; = gsub(&quot;;.*&quot;, &quot;&quot;, Protein)) %&gt;%
   mutate(&quot;Gene&quot; = mapIds(org.Hs.eg.db, keys = Protein_name,
-                         keytype = &quot;UNIPROT&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;% 
-  dplyr::select(-c(Protein_name, Protein)) %&gt;% 
-  dplyr::filter(Gene == &quot;CDK4&quot;) %&gt;% 
-  column_to_rownames(&quot;Gene&quot;) %&gt;% 
+                         keytype = &quot;UNIPROT&quot;, column = &quot;SYMBOL&quot;, multiVals=&quot;first&quot;)) %&gt;%
+  dplyr::select(-c(Protein_name, Protein)) %&gt;%
+  dplyr::filter(Gene == &quot;CDK4&quot;) %&gt;%
+  column_to_rownames(&quot;Gene&quot;) %&gt;%
   melt() %&gt;% set_colnames(c(&quot;SIDM&quot;, &quot;Protein&quot;))) %&gt;%
   ggplot(aes(y = Protein, x=&#39;&#39;, color = Outlier)) +
  geom_beeswarm(cex=3, size=3) +
-   scale_color_manual(values = c(&quot;No&quot; = &quot;#8d99ae&quot;, 
+   scale_color_manual(values = c(&quot;No&quot; = &quot;#8d99ae&quot;,
                                 &quot;Yes&quot; = &quot;#bc4749&quot;))  +
   theme(legend.position = &quot;none&quot;) + theme_bw() +
     theme(axis.text.x = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
             axis.text.y = element_text(size = 20, family = &quot;serif&quot;, color = &quot;black&quot;),
-        axis.title = element_text(size=20, family = &quot;serif&quot;), 
+        axis.title = element_text(size=20, family = &quot;serif&quot;),
          legend.box.background = element_rect(color = &quot;black&quot;),
-          legend.text = element_text(family = &quot;serif&quot;), 
+          legend.text = element_text(family = &quot;serif&quot;),
           legend.title = element_text( family = &quot;serif&quot;),
-           plot.title = element_text(family = &quot;serif&quot;, size =20),         
+           plot.title = element_text(family = &quot;serif&quot;, size =20),
         panel.grid.major.x = element_blank(),
         panel.grid.major.y = element_line( size=.1 ),
               legend.position = &quot;none&quot;,
@@ -1690,24 +1759,17 @@ cdk4</code></pre>
         size = 10, family = &quot;serif&quot;
         )) + xlab(&quot;Samples&quot;) + ylab(&quot;Protein abundance&quot;)
 
-cdk4_prt_swarm</code></pre>
-<p><img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
+ggarrange(cdk4,cdk4_prt_swarm, ncol=2)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/supplementary-publication-figures.Rmd/unnamed-chunk-25-1.png" alt="Scatterplot showing mRNA expression and protein abundance for CDK4 (left) and distribution of CDK4 protein abundance (right) across samples in the ProCan- DepMapSanger dataset. Outliers indicated in e are those calculated from mRNA expression data in Supp figure 3d." width="1152" />
+<p class="caption">
+Scatterplot showing mRNA expression and protein abundance for CDK4
+(left) and distribution of CDK4 protein abundance (right) across samples
+in the ProCan- DepMapSanger dataset. Outliers indicated in e are those
+calculated from mRNA expression data in Supp figure 3d.
+</p>
+</div>
 <pre class="r"><code>ggsave(filename = &quot;output/Publication/Figures/Supp_Fig_3D_lower.png&quot;,height = 6, width = 6, plot = cdk4_prt_swarm, dpi = 1200 )</code></pre>
-<!-- ```{r} -->
-<!-- cdk4 = ranks_all %>% -->
-<!--   ggplot(aes(Correlation)) + -->
-<!--    geom_density(data=ranks_all, color="darkgrey", size = 1) + -->
-<!--       geom_density(data=dplyr::filter(cr_correlations, Gene == "CDK4"), color="#e3a3b3", size = 1.5, lty ="dashed", alpha = 0.5) +  -->
-<!--    geom_density(data=dplyr::filter(ccle, Protein == "CDK4"), color="#6e0b24", size = 1.5, lty ="dotted", alpha =0.5) + -->
-<!--   geom_density(data=dplyr::filter(ranks_all, Gene == "CDK4"), color="#fb6f92", size = 2) + -->
-<!--   theme_classic() + labs(x= "mRNA-protein correlation",  -->
-<!--                     y= "Density",  -->
-<!--                     title = "CDK4") + -->
-<!--   theme(axis.text= element_text( color = "black", size =15, family="serif"),  -->
-<!--         title =  element_text( color = "black", size =15, family="serif", face = "bold"),  -->
-<!--       axis.title =element_text( color = "black", size =15, family="serif"))  -->
-<!-- ggsave(plot = cdk4, filename = "output/Publication/Figures/CDK4-dist.png", height = 5, width =5, dpi=1200) -->
-<!-- ``` -->
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1767,56 +1829,57 @@ loaded via a namespace (and not attached):
  [13] ggdist_3.3.2                backports_1.5.0            
  [15] sass_0.4.9                  rmarkdown_2.29             
  [17] jquerylib_0.1.4             yaml_2.3.10                
- [19] httpuv_1.6.15               DBI_1.2.3                  
- [21] abind_1.4-8                 zlibbioc_1.48.2            
- [23] RCurl_1.98-1.16             rappdirs_0.3.3             
- [25] git2r_0.35.0                GenomeInfoDbData_1.2.11    
- [27] codetools_0.2-19            DelayedArray_0.28.0        
- [29] xml2_1.3.6                  tidyselect_1.2.1           
- [31] farver_2.1.2                BiocFileCache_2.10.2       
- [33] GenomicAlignments_1.38.2    jsonlite_1.8.9             
- [35] Formula_1.2-5               systemfonts_1.1.0          
- [37] tools_4.3.3                 progress_1.2.3             
- [39] Rcpp_1.0.14                 glue_1.8.0                 
- [41] SparseArray_1.2.4           xfun_0.50                  
- [43] mgcv_1.9-1                  MatrixGenerics_1.14.0      
- [45] distributional_0.5.0        withr_3.0.2                
- [47] formatR_1.14                fastmap_1.2.0              
- [49] callr_3.7.6                 digest_0.6.37              
- [51] timechange_0.3.0            R6_2.5.1                   
- [53] textshaping_0.4.1           biomaRt_2.58.2             
- [55] RSQLite_2.3.9               generics_0.1.3             
- [57] rtracklayer_1.62.0          prettyunits_1.2.0          
- [59] httr_1.4.7                  htmlwidgets_1.6.4          
- [61] S4Arrays_1.2.1              whisker_0.4.1              
- [63] pkgconfig_2.0.3             gtable_0.3.6               
- [65] blob_1.2.4                  XVector_0.42.0             
- [67] htmltools_0.5.8.1           carData_3.0-5              
- [69] ProtGenerics_1.34.0         scales_1.3.0               
- [71] png_0.1-8                   knitr_1.49                 
- [73] lambda.r_1.2.4              rstudioapi_0.17.1          
- [75] tzdb_0.4.0                  rjson_0.2.23               
- [77] uuid_1.2-1                  nlme_3.1-164               
- [79] curl_6.1.0                  cachem_1.1.0               
- [81] vipor_0.4.7                 parallel_4.3.3             
- [83] restfulr_0.0.15             pillar_1.10.1              
- [85] vctrs_0.6.5                 promises_1.3.2             
- [87] car_3.1-3                   dbplyr_2.5.0               
- [89] beeswarm_0.4.0              evaluate_1.0.3             
- [91] cli_3.6.3                   compiler_4.3.3             
- [93] futile.options_1.0.1        Rsamtools_2.18.0           
- [95] rlang_1.1.4                 crayon_1.5.3               
- [97] ggsignif_0.6.4              labeling_0.4.3             
- [99] ps_1.8.1                    getPass_0.2-4              
-[101] plyr_1.8.9                  fs_1.6.5                   
-[103] stringi_1.8.4               BiocParallel_1.36.0        
-[105] babelgene_22.9              munsell_0.5.1              
-[107] Biostrings_2.70.3           lazyeval_0.2.2             
-[109] Matrix_1.6-5                hms_1.1.3                  
-[111] bit64_4.5.2                 KEGGREST_1.42.0            
-[113] SummarizedExperiment_1.32.0 gridtext_0.1.5             
-[115] broom_1.0.7                 memoise_2.0.1              
-[117] bslib_0.8.0                 bit_4.5.0.1                </code></pre>
+ [19] httpuv_1.6.15               cowplot_1.1.3              
+ [21] DBI_1.2.3                   abind_1.4-8                
+ [23] zlibbioc_1.48.2             RCurl_1.98-1.16            
+ [25] rappdirs_0.3.3              git2r_0.35.0               
+ [27] GenomeInfoDbData_1.2.11     codetools_0.2-19           
+ [29] DelayedArray_0.28.0         xml2_1.3.6                 
+ [31] tidyselect_1.2.1            farver_2.1.2               
+ [33] BiocFileCache_2.10.2        GenomicAlignments_1.38.2   
+ [35] jsonlite_1.8.9              Formula_1.2-5              
+ [37] systemfonts_1.1.0           tools_4.3.3                
+ [39] progress_1.2.3              Rcpp_1.0.14                
+ [41] glue_1.8.0                  SparseArray_1.2.4          
+ [43] xfun_0.50                   mgcv_1.9-1                 
+ [45] MatrixGenerics_1.14.0       distributional_0.5.0       
+ [47] withr_3.0.2                 formatR_1.14               
+ [49] fastmap_1.2.0               callr_3.7.6                
+ [51] digest_0.6.37               timechange_0.3.0           
+ [53] R6_2.5.1                    textshaping_0.4.1          
+ [55] biomaRt_2.58.2              RSQLite_2.3.9              
+ [57] generics_0.1.3              rtracklayer_1.62.0         
+ [59] prettyunits_1.2.0           httr_1.4.7                 
+ [61] htmlwidgets_1.6.4           S4Arrays_1.2.1             
+ [63] whisker_0.4.1               pkgconfig_2.0.3            
+ [65] gtable_0.3.6                blob_1.2.4                 
+ [67] XVector_0.42.0              htmltools_0.5.8.1          
+ [69] carData_3.0-5               ProtGenerics_1.34.0        
+ [71] scales_1.3.0                png_0.1-8                  
+ [73] knitr_1.49                  lambda.r_1.2.4             
+ [75] rstudioapi_0.17.1           tzdb_0.4.0                 
+ [77] rjson_0.2.23                uuid_1.2-1                 
+ [79] nlme_3.1-164                curl_6.1.0                 
+ [81] cachem_1.1.0                vipor_0.4.7                
+ [83] parallel_4.3.3              restfulr_0.0.15            
+ [85] pillar_1.10.1               vctrs_0.6.5                
+ [87] promises_1.3.2              car_3.1-3                  
+ [89] dbplyr_2.5.0                beeswarm_0.4.0             
+ [91] evaluate_1.0.3              cli_3.6.3                  
+ [93] compiler_4.3.3              futile.options_1.0.1       
+ [95] Rsamtools_2.18.0            rlang_1.1.4                
+ [97] crayon_1.5.3                ggsignif_0.6.4             
+ [99] labeling_0.4.3              ps_1.8.1                   
+[101] getPass_0.2-4               plyr_1.8.9                 
+[103] fs_1.6.5                    stringi_1.8.4              
+[105] BiocParallel_1.36.0         babelgene_22.9             
+[107] munsell_0.5.1               Biostrings_2.70.3          
+[109] lazyeval_0.2.2              Matrix_1.6-5               
+[111] hms_1.1.3                   bit64_4.5.2                
+[113] KEGGREST_1.42.0             SummarizedExperiment_1.32.0
+[115] gridtext_0.1.5              broom_1.0.7                
+[117] memoise_2.0.1               bslib_0.8.0                
+[119] bit_4.5.0.1                </code></pre>
 </div>
 </div>
 </div>
