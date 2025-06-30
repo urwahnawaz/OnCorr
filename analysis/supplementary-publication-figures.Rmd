@@ -1,5 +1,5 @@
 ---
-title: "supplementary-publication-figures"
+title: "Supplementary Figures"
 author: "urwahnawaz"
 date: "2024-10-10"
 output:
@@ -23,7 +23,8 @@ knitr::opts_chunk$set(
 
 ## Introduction 
 
-This notebook contains supplementary figures that will be used for the mRNA protein correlation paper. 
+This notebook contains code used to generate supplementary figures in [Nawaz et al (2025)](https://www.biorxiv.org/content/10.1101/2025.06.12.659426v1). The code used to generate the mRNA-protein correlation data used for these figures can be found in  `analysis/calculate_correlations.Rmd`, or in the Analysis option on the option bar in this notebook. The main figures can be found in Figures/Main publication. Figures which utilise the raw protein or RNA expression matrices can be found in the relevant publicaitons as started in [Nawaz et al (2025)](https://www.biorxiv.org/content/10.1101/2025.06.12.659426v1). 
+. 
 
 ```{r}
 library(ggplot2)
