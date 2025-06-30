@@ -1,5 +1,5 @@
 ---
-title: "Correlation analysis "
+title: "Calculation of mRNA-protein correlations across pan-cancer datasets "
 author: "urwahnawaz"
 date: "2025-02-27"
 output: workflowr::wflow_html
@@ -50,7 +50,7 @@ library(matrixStats)
 library(ggiraph)
 ```
 
-## ProCan-DepMapSanger Dataset 
+# ProCan-DepMapSanger Dataset 
 
 ### Load data 
 
@@ -78,8 +78,7 @@ data$rna_voom %<>%
   left_join(uniprot_annot , by = "Gene") 
 ```
 
-### Calculate overall correlations 
-
+## Pan-cancer correlations in the ProCan-DepMapSanger dataset
 
 ```{r}
 data_full = data$prt_mtx %>% 
@@ -143,7 +142,7 @@ corAll = cor_all %>%
 #write.csv(corAll, "output/correlations-datasets/correlation-all-nontransformed.csv")
 ```
 
-```{r}
+```{r fig.height=5, fig.width=5, fig.cap="Pan-cancer mRNA-protein correlations in the ProCan-DepMapSanger dataset."}
 corAll  %>%
   ggplot(aes(x = Correlation)) + 
   geom_histogram(color="white", alpha=1, fill = "#ccd5ae") + theme_bw() +
@@ -158,11 +157,11 @@ corAll  %>%
 
 ```
 
-### Correlations for each tissue 
+## Cancer-specific correlations in the ProCan-DepMapSanger dataset
 
-Selecting tissues which contain more than 10 cell lines. Subsequently, only calculating correlations for proteins which contain more than 10 observaions for both RNA and protein abundances. 
+To increase statstical power and for consistency, we grouped cancers based on their tissue of origin, We selected tissues which contain more than 10 cell lines. Subsequently, only calculating correlations for proteins which contain more than 10 observations for both RNA and protein abundances. 
 
-```{r fig.height =6, fig.width=6}
+```{r fig.height =6, fig.width=6, fig.cap = "Selecting tissues with > 10 cell lines. Selected tissues are denoted in red, whereas those that do not meet the threshold are in grey."}
 
 tissue_counts <-table(data$sample_md$Tissue_type)
 tissues_incl <- names(tissue_counts[tissue_counts > 10])
@@ -243,7 +242,7 @@ corTissue = cor_per_tissue  %>%
 ```
 
 
-## CPTAC data correlation
+# CPTAC dataset
 
 ```{r}
 subfolders = list.dirs(file.path("/Users/unawaz/Documents/2024/Correlations/CPTAC"), full.names = TRUE)
@@ -306,7 +305,6 @@ for (cancer in cancers[-1]){
 
 
 library(data.table)
-rbindlist(md, fill = TRUE)
 
 all_md = rbindlist(md, fill = TRUE) %>% as.data.frame()
 #write.csv(all_md, "output/CPTAC-sample-info-merged.csv")
@@ -320,12 +318,12 @@ for (cancer in cancers){
 }
 ```
 
-### Overall correlations
+## Pan-cancer correlations in the CPTAC dataset
 
 Similar to the ProCan-DepMapSanger dataset, we performed correlations across the entire dataset, where only proteins with > 10 observations in both the protein matrix and the RNA matrix were considered for analysis.
 
 
-```{r}
+```{r fig.height=5, fig.width=5, fig.cap="Pan-cancer mRNA-protein correlations in the CPTAC dataset."}
 cor_all = list()
 
 for (protein in all_data$Gene) {
@@ -359,12 +357,24 @@ cptac=  cor_all %>%
   do.call(rbind,.)
 
 
-median(cptac$Correlation, na.rm =T )
+cptac  %>%
+  ggplot(aes(x = Correlation)) + 
+  geom_histogram(color="white", alpha=1, fill = "#ccd5ae") + theme_bw() +
+  labs(x="mRNA-protein correlation", 
+       y = "Number of associations") +  annotate("text", x = -0.1, y = 600,
+  label = "paste(italic(median), \" = 0.39\")", parse = TRUE, color = "#9a031e") + 
+  geom_vline(xintercept = 0.39, linetype = "dashed", color = "#9a031e") +
+  ggtitle("CPTAC") +
+     theme(legend.position = "none",
+      axis.text=element_text(size=15,  family="serif", color = "black"),
+      axis.title = element_text(size=16, family = "serif", color = "black")) 
 
 ```
 
 
-### Correlation per tissue type
+## Cancer-specific correlations in the CPTAC dataset
+
+Similar to the ProCan-DepMap sanger dataset, we grouped cancers based  on their tissue of origin, and selected tissues which contain more than 10 cell lines.
 
 ```{r}
 cor_per_cancer = list()
@@ -408,7 +418,7 @@ cptac= cor_per_cancer %>%
 ```
 
 
-## CCLE data
+# CCLE dataset
 
 ```{r}
 CCLE_data = read_excel("/Users/unawaz/Documents/2023/RNA-protein-correlationx/Data/CCLE/mmc4.xlsx",
@@ -478,11 +488,7 @@ library(VennDiagram)
 x = list("Protein" = data_ccle$prt$Gene_Symbol,
          "Gene" = data_ccle$rna$Gene)
 
-ggvenn(x)
-
 lists = calculate.overlap(x)
-
-lists$a3
 ```
 
 ### Correlation across the dataset
@@ -492,7 +498,7 @@ ccle_cor_all  = list()
 
 
 
-  prt_data = data_ccle$prt %>%
+prt_data = data_ccle$prt %>%
   melt() %>%
   dplyr::rename(CCLE_Name = variable, Protein = value) %>%
   inner_join(data_ccle$sample_md %>%
@@ -541,6 +547,20 @@ ccle_cor_all  = list()
 
  ccle_cor_all %<>% do.call(rbind,.) %>%  drop_na()
 
+ 
+ccle_cor_all %>% 
+  ggplot(aes(x = Correlation)) + 
+  geom_histogram(color="white", alpha=1, fill = "#ccd5ae") + theme_bw() +
+  labs(x="mRNA-protein correlation", 
+       y = "Number of associations") +  annotate("text", x = -0.1, y = 600,
+  label = "paste(italic(median), \" = 0.45\")", parse = TRUE, color = "#9a031e") + 
+  geom_vline(xintercept = 0.45, linetype = "dashed", color = "#9a031e") +
+  ggtitle("CCLE") +
+     theme(legend.position = "none",
+      axis.text=element_text(size=15,  family="serif", color = "black"),
+      axis.title = element_text(size=16, family = "serif", color = "black")) 
+ 
+ 
  median(ccle_cor_all$Correlation)
 ```
 
@@ -553,9 +573,6 @@ cancers = table(data_ccle$sample_md$primary_disease) %>%
    dplyr::filter(value >10) %>%
    set_colnames("Cancer") %>%
    as.data.frame()
-#
-# sample_cancers = data_ccle$sample_md %>%
-#   dplyr::filter(disease %in% cancers$Cancer)
 
 
 tissues= colnames(data_ccle$prt) %>%
@@ -615,9 +632,6 @@ for (cancer in tissues$Tissue) {
 }
 
 ccle_cor %<>% do.call(rbind,.) %>%  drop_na()
-
-table(ccle_cor$Tissue)
-
 
 ```
 
